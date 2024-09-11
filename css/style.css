@@ -1,0 +1,497 @@
+/* Tipografías */
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+/* Estilo base */
+:root {
+  --primary-color: #eceff5; /* Definir el color global */
+  --secondary-color: #F3EFE6; /* Puedes definir otros colores también */
+  --background-color: #0D0D0D;
+  --default-font: "Barlow";
+}
+
+/* Estilos generales */
+body {
+  background-color: var(--background-color);
+  font-family: var(--default-font);
+  color: var(--primary-color);
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Estilos del Navbar */
+.navbar {
+  overflow: hidden;
+  position: fixed; /* Esto asegura que los elementos hijos con position absolute se posicionen con respecto al navbar */
+  width: 100%;
+  z-index: 1000;
+}
+
+nav .scrolled {
+  background-color: rgba(13, 13, 13, 0.95);
+  display: block;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 80px;
+  padding: 40px 0;
+}
+
+/* Logo de la marca */
+.brand-logo {
+  width: auto;
+  height: 40px;
+}
+
+/* Estilos de los links del Navbar */
+.nav-links {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  height: 100%;
+}
+
+.nav-links li {
+  display: inline;
+}
+
+.nav-links a {
+  font-family: "Barlow";
+  font-size: 1.2rem;
+  color: var(--primary-color);
+  text-decoration: none;
+  text-rendering: optimizeLegibility;
+  padding: 14px 20px;
+  display: block;
+}
+
+.nav-links a:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 6px;
+}
+
+/* Icono del menú en móvil */
+.icon {
+  display: none;
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+/* Para pantallas pequeñas (móvil) */
+@media (max-width: 768px) {
+  .navbar-container {
+    margin: 0 30px;
+    padding: 30px 0;
+  }
+
+  .brand-logo {
+    width: auto;
+    height: 35px;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    position: fixed; /* Ahora se posiciona absolutamente respecto al navbar */
+    top: 100px; /* Ajusta este valor para que el menú esté justo debajo del navbar */
+    left: 0;
+    background-color: rgba(13, 13, 13, 0.95); /* Asegura que el fondo del menú coincida con el navbar */
+    z-index: 1000;
+  }
+
+  .nav-links li {
+    display: block;
+  }
+
+  .nav-links a {
+    padding: 14px;
+    border-top: 1px solid #202020;
+  }
+
+  .icon {
+    display: block;
+  }
+}
+
+/* Para pantallas grandes */
+@media (min-width: 769px) {
+  .nav-links {
+    display: flex !important; /* ¡Este es el truco! Restaura el menú en pantallas grandes */
+  }
+}
+
+/* Contenedor para mantener el contenido centrado y con márgenes */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+  box-sizing: border-box;
+}
+
+/* Flujo de columnas responsivo con sistema de grid */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 30px -15px;
+}
+
+.col {
+  padding: 0 2px;
+  box-sizing: border-box;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  background-repeat: no-repeat;
+  object-position: top;
+  object-fit: cover;
+  height: 400px;
+}
+
+.image-select {
+  width: 100%;
+  height: auto;
+  background-repeat: no-repeat;
+  object-position: center;
+  object-fit: cover;
+  height: 600px;
+}
+
+/* Tamaños de columnas en diferentes resoluciones */
+.col-12 { width: 100%; }
+.col-6  { width: 50%; }
+.col-4  { width: 33.3333%; }
+.col-3  { width: 25%; }
+
+/* Tamaños de columnas en diferentes resoluciones */
+.col-xs-12 { width: 100%; }
+.col-xs-6  { width: 50%; }
+.col-xs-4  { width: 33.3333%; }
+.col-xs-3  { width: 25%; }
+
+/* Ajuste responsivo según el ancho de la pantalla */
+@media (max-width: 768px) {
+  .col-6 { width: 100%; }
+  .col-4 { width: 100%; }
+  .col-3 { width: 50%; }
+  .col-xs-12 { padding: 0 40px; }
+  .col-xs-6  { padding: 0 40px; }
+  .col-xs-4  { padding: 0 40px; }
+  .col-xs-3  { padding: 0 40px; }
+}
+
+/* Sistema basado en CSS Grid para organizar columnas */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 10px;
+}
+
+.grid-col-6 {
+  grid-column: span 6;
+}
+
+.grid-col-4 {
+  grid-column: span 4;
+}
+
+.grid-col-3 {
+  grid-column: span 3;
+}
+
+@media (max-width: 768px) {
+  .grid-col-6,
+  .grid-col-4,
+  .grid-col-3 {
+    grid-column: span 12;
+  }
+}
+
+/* Texto que ajusta su tamaño según el ancho de pantalla */
+.text-responsive {
+  font-size: 16px;
+}
+
+@media (max-width: 768px) {
+  .text-responsive {
+    font-size: 16px;
+  }
+}
+
+.col-flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.align-start {
+  text-align: left;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.align-center {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.align-end {
+  text-align: right;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.hero-container {
+  width: 100%;
+  height: 600px;
+  margin: 0 auto;
+  padding: 0 15px;
+  background-image: url(../assets/bg-1.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  box-sizing: border-box;
+}
+
+.hero-container .row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  height: 100%;
+}
+
+.hero-container .title {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem 1rem;
+  width: 500px;
+}
+
+.hero-container p {
+  font-family: "Open Sans";
+  text-rendering: optimizeLegibility;
+  letter-spacing: -0.1rem;
+  color: var(--primary-color);
+  font-weight: 400;
+  font-size: 2.5rem;
+  margin: -10px 0;
+  display: inline;
+}
+
+.hero-container .serif {
+  font-family: "Crimson Text";
+  font-style: italic;
+  font-size: 3.1rem;
+  line-height: 3.5rem;
+}
+
+.hero-container .content {
+  background-image: url(../assets/bg-1.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  height: 600px;
+}
+
+#about {
+  margin-bottom: 90px;
+}
+
+#about .col-flex {
+  display: inline-flex;
+  gap : 5px;
+}
+
+#title {
+  margin-top: 15px;
+  margin-bottom: 30px;
+  max-width: 350px;
+}
+
+#title p {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+#about #description {
+  max-width: 650px;
+}
+
+#about #description p {
+  display: inline;
+  color: #909090;
+  font-size: 1.15rem;
+  margin: 0;
+}
+
+#about #description .serif {
+  color: var(--primary-color);
+  font-family: "Crimson Text";
+  font-size: 1.25rem;
+  font-weight: 600;
+  font-style: italic;
+}
+
+#Producciones .container, #Co-producciones .container {
+  position: relative;
+}
+
+#Producciones .header, #Co-producciones .header {
+  position: absolute;
+  background-color: rgba(13, 13, 13, 0.6);
+  backdrop-filter: blur(10px);
+  margin: 0;
+  padding: 0 20px;
+  gap: 10px;
+}
+
+#Producciones .header p, #Co-producciones .header p {
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+#Producciones .header .description, #Co-producciones .header .description {
+  font-weight: 400;
+  font-style: italic;
+  color: #ccc;
+}
+
+#Producciones .header .separator, #Co-producciones .header .separator {
+  font-weight: 400;
+  font-style: italic;
+  color: #404040;
+}
+
+#Clientes {
+  margin-bottom: 80px;
+  padding: 40px;
+  background-color: #101010;
+  max-width: 100%;
+}
+
+#Clientes .title {
+  color: #ccc;
+  font-family: "Crimson Text";
+  font-style: italic;
+  font-weight: 600;
+  font-size: 2rem;
+}
+
+#Clientes img {
+  opacity: 0.8;
+  object-fit: contain;
+  width: 100%;
+  max-width: 1000px;
+  height: auto;
+}
+
+.outer-container h1 {
+  font-family: "Barlow";
+  font-weight: 500;
+}
+
+.outer-container p {
+  font-family: "Barlow";
+}
+
+#terms {
+  text-align: left;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+#socials {
+  text-align: right;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+footer .container {
+  font-family: "Barlow";
+  z-index: 50;
+}
+
+footer .space {
+  margin-bottom: 40px;
+}
+
+footer .off {
+  margin-top: 80px;
+  margin-bottom: 40px;
+}
+
+footer .off p {
+  margin: 5px 0;
+}
+
+footer .gap {
+  gap: 10px;
+}
+
+footer .gap-2 {
+  gap: 30px;
+}
+
+footer .extra {
+  gap: 140px;
+}
+
+footer img {
+  width: auto;
+  height: 120px;
+}
+
+.container:hover {
+  cursor: pointer;
+}
+
+.category {
+  font-size: 1.5rem !important;
+}
+
+.occluded {
+  color: #666B6F;
+}
+
+@media (max-width: 768px) {
+  .hero-container .title {
+    gap: 0.8rem 0.6rem;
+    width: 300px;
+  }
+
+  .hero-container p {
+    font-size: 1.6rem;
+  }
+
+  .hero-container .serif {
+    font-size: 2.1rem;
+    line-height: 2.25rem;
+  }
+
+  #terms, #socials {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+  }
+
+  footer .extra {
+    gap: 40px;
+  }
+
+  footer img {
+    height: 80px;
+  }
+}
