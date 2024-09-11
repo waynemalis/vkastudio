@@ -454,10 +454,6 @@ footer img {
   height: 120px;
 }
 
-.container:hover {
-  cursor: pointer;
-}
-
 .category {
   font-size: 1.5rem !important;
 }
