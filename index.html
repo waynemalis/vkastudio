@@ -1,171 +1,341 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>The VKA Studio</title>
-    <link rel="icon" href="assets/favicon.svg">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/carousel.css">
-    <script src="https://unpkg.com/feather-icons"></script>
-  </head>
-  <body>
-    <nav class="navbar">
-      <div id="nav" class="">
-        <div class="navbar-container">
-          <img src="assets/logo.png" class="brand-logo">
-          <ul class="nav-links" id="navLinks">
-            <li><a href="#">Nosotros</a></li>
-            <li><a href="#">Proyectos</a></li>
-            <li><a href="#">Clientes</a></li>
-            <li><a href="#">Contáctanos</a></li>
-          </ul>
-          <a href="javascript:void(0);" class="icon" onclick="toggleMenu()">&#9776;</a>
+    <title>Wiyasa Corp</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            color: black;
+            font-size: 0.9rem;
+        }
+
+        .logo svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: black;
+            font-size: 0.85rem;
+            white-space: nowrap;
+        }
+
+        .contact-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.25rem;
+            border-radius: 2rem;
+            background: black;
+            color: white !important;
+        }
+
+        main {
+            margin-top: 5rem;
+            padding: 2rem 5%;
+        }
+
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 4rem;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            line-height: 1.1;
+            margin-bottom: 2rem;
+            font-weight: bold;
+        }
+
+        .hero-text {
+            color: #666;
+            margin-bottom: 2rem;
+            max-width: 80%;
+        }
+
+        .yellow-box {
+            background: #FFE761;
+            padding: 2rem;
+            border-radius: 0.5rem;
+            position: relative;
+            margin-bottom: 2rem;
+        }
+
+        .yellow-box h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .arrow-icon {
+            width: 20px;
+            height: 20px;
+        }
+
+        .slider-controls {
+            display: flex;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .control-btn {
+            width: 40px;
+            height: 40px;
+            border: 1px solid black;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            background: none;
+        }
+
+        .control-btn.next {
+            background: black;
+            color: white;
+        }
+
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .image-grid img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 0.5rem;
+        }
+
+        .company-intro {
+            margin: 4rem 0;
+        }
+
+        .company-intro h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            max-width: 60%;
+        }
+
+        .company-desc {
+            color: #666;
+            max-width: 40%;
+        }
+
+        .our-work-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #FFE761;
+            padding: 0.75rem 1.5rem;
+            border-radius: 2rem;
+            text-decoration: none;
+            color: black;
+            margin-top: 2rem;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .stat-box h3 {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .stat-box p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 1024px) {
+            .hero {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+
+            .hero-text, .company-intro h2, .company-desc {
+                max-width: 100%;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .image-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#" class="logo">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M3 12h18M3 6h18M3 18h18" stroke-width="2"/>
+            </svg>
+            Wiyasa Corp
+        </a>
+        <div class="nav-links">
+            <a href="#">WHAT WE DO</a>
+            <a href="#">OUR PROJECTS</a>
+            <a href="#">OUR NEWSROOM</a>
+            <a href="#">ALL ABOUT US</a>
+            <a href="#" class="contact-btn">Contact us →</a>
         </div>
-      </div>
     </nav>
-    <div class="hero-container">
-      <div class="row align-center">
-        <div class="title align-center">
-          <p class="serif">No hacemos</p><p>comerciales,</p><p>hacemos</p><p class="serif">cine publicitario.</p>
-        </div>
-      </div>
-    </div>
-  <div id="about" class="container">
-    <div class="row">
-      <div class="col col-12 align-center">
-        <div id="title" class="col-flex align-center">
-          <p>Nuestros comerciales son para empresas de todos los tamaños.</p>
-        </div>
-      </div>
-      <div class="col col-12 align-center">
-        <div id="description" class="col-flex align-center">
-          <p class="serif">Somos</p><p>una agencia chihuahuense de contenido</p><p>y marketing cinematográfico.</p><p>Amamos el</p><p class="serif">desafío visual y creativo</p><p>de potenciar tu marca con</p><p class="serif">comerciales y contenido original</p><p>de calidad cine.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div id="Producciones" class="container">
-    <div class="row">
-      <div class="col-xs-12">
-        <p class="category">//Producciones destacadas</p>
-      </div>
-      <div class="col col-xs-6 align-end">
-        <p></p>
-      </div>
-      <div class="col col-12 align-end">
-        <div class="header col-flex align-center">
-          <p>Libertad Ortega</p><p class="separator">//</p><p class="description">Vídeo Musical</p>
-        </div>
-        <img class="image-select" src="assets/image-1.jpg" alt="">
-      </div>
-      <div class="col col-6 align-end">
-        <div class="header col-flex align-center">
-          <p>Gobierno de Meoqui</p><p class="separator">//</p><p class="description">Informe cinematográfico</p>
-        </div>
-        <img class="image" src="assets/image-3.png" alt="">
-      </div>
-      <div class="col col-6 align-end">
-        <div class="header col-flex align-center">
-          <p>Café Combate®</p><p class="separator">//</p><p class="description">Campaña "Drink & Dance"</p>
-        </div>
-        <img class="image" src="assets/image-9.jpg" alt="">
-      </div>
-      <div class="col col-12 align-end">
-        <div class="header col-flex align-center">
-          <p>Spotlights</p><p class="separator">//</p><p class="description">Fashion Films</p>
-        </div>
-        <img class="image" src="assets/image-6.jpg" alt="">
-      </div>
-    </div>
-  </div>
-  <div id="Co-producciones" class="container">
-    <div class="row">
-      <div class="col-xs-12">
-        <p class="category">//Co-producciones</p>
-      </div>
-      <div class="col col-xs-6 align-end">
-        <p></p>
-      </div>
-      <div class="col col-12 align-end">
-        <div class="header col-flex align-center">
-          <p>Frame®</p><p class="separator">//</p><p class="description">TV Series</p>
-        </div>
-        <img class="image-select" src="assets/image-8.jpg" alt="">
-      </div>
-      <div class="col col-12 align-end">
-        <div class="header col-flex align-center">
-          <p>FC Juárez® Bravos</p><p class="separator">//</p><p class="description">Cortometraje</p>
-        </div>
-        <img class="image" src="assets/image-2.jpg" alt="">
-      </div>
-    </div>
-  </div>
-  <div id="Clientes" class="container">
-    <div class="row">
-      <div class="col col-12 align-center">
-        <p class="title">Nuestros clientes</p>
-      </div>
-      <div class="col col-12 align-center">
-        <img src="assets/clients.png" alt="">
-      </div>
-    </div>
-  </div>
-  <div id="Contacto" class="container">
-    <div class="row">
-      <div class="col-12 align-center">
-        <div class = "outer-container">
-          <div class = "container">
-            <div class="content">
-              <h1>Acompáñanos</h1>
-              <p class="occluded">Lleva la imagen de tu empresa al siguiente nivel con estrategias creativas y efectivas que destacarán tu marca en el mercado.</p>
-              <button>Contáctanos</button>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Improving people's futures through building</h1>
+                <p class="hero-text">Develop new solutions to meet changing needs, leveraging our deep customer insight, practical expertise and broad range of capabilities.</p>
+
+                <div class="yellow-box">
+                    <h3>
+                        Future-shaping strategic consultancy
+                        <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M7 17l10-10M7 7h10v10" stroke-width="2"/>
+                        </svg>
+                    </h3>
+                    <p>We work with our customers in their business and investment planning to develop new solutions to meet changing needs, leveraging our deep customer insight, practical expertise and broad range of capabilities.</p>
+                </div>
+
+                <p>Consultancy and advisory</p>
+                <p>We engineer and integrate our solutions into our projects to improve the performance of infrastructure</p>
+
+                <div class="slider-controls">
+                    <button class="control-btn prev">←</button>
+                    <button class="control-btn next">→</button>
+                </div>
             </div>
-            <img class ="image" src ="assets/image-2.jpg" style="animation-delay: -0s;"/>
-            <img class ="image" src ="assets/image-11.jpg" style="animation-delay: -10s;"/>
-            <img class ="image" src ="assets/image-9.jpg" style="animation-delay: -20s;"/>
-            <img class ="image" src ="assets/image-8.jpg" style="animation-delay: -30s;"/>
-            <img class ="image" src ="assets/image-4.jpg" style="animation-delay: -40s;"/>
-            <img class ="image" src ="assets/image-6.jpg" style="animation-delay: -50s;"/>
-            <img class ="image" src ="assets/image-3.png" style="animation-delay: -60s;"/>
-            <img class ="image" src ="assets/image-5.png" style="animation-delay: -70s;"/>
-            <img class ="image" src ="assets/image-15.jpg" style="animation-delay: -80s;"/>
-            <img class ="image" src ="assets/image-14.jpg" style="animation-delay: -90s;"/>
-            <img class ="image" src ="assets/image-17.png" style="animation-delay: -100s;"/>
-            <img class ="image" src ="assets/image-16.png" style="animation-delay: -110s;"/>
-            <div class="frame"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <footer>
-    <div class="container">
-      <div class="row align-center">
-        <div id="terms" class="col-6 col-flex gap-2">
-          <p>Disclaimer</p><p>Términos de uso</p><p>Política de privacidad</p>
-        </div>
-        <div id="socials" class="col-6 col-flex gap-2">
-          <i data-feather="instagram"></i><i data-feather="facebook"></i><i data-feather="mail"></i>
-        </div>
-        <div class="col-12 off align-center">
-          <div class="col-flex gap align-center">
-            <p>THE VKA STUDIO®</p><p class="occluded">Derechos reservados</p>
-          </div>
-          <p>Chihuahua, México. 2024.</p>
-        </div>
-        <div class="col-12 col-flex extra align-center">
-          <img src="assets/vka-partnership.png" alt="">
-          <img src="assets/vka-jobs.png" alt="">
-        </div>
-      </div>
-    </div>
-  </footer>
 
-  <script type="text/javascript" src="js/feather.js"></script>
-  <script type="text/javascript" src="js/navbar.js"></script>
-  <script type="text/javascript" src="js/scroll.js"></script>
+            <div class="image-grid">
+                <img src="/api/placeholder/600/400" alt="Construction crane">
+                <img src="/api/placeholder/600/400" alt="Building construction">
+            </div>
+        </section>
 
-  </body>
+        <section class="company-intro">
+            <h2>We were originally established as a contractor to major multi-national housebuilders</h2>
+            <p class="company-desc">We have specialisms in groundworks and civil engineering, abnormal ground conditions, infrastructure, and reinforced concrete frames.</p>
+            <a href="#" class="our-work-btn">Our work ↓</a>
+        </section>
+
+        <section class="stats">
+            <div class="stat-box">
+                <h3>400+</h3>
+                <p>Wiyasa Workers with more than 10 years' service</p>
+            </div>
+            <div class="stat-box">
+                <h3>11,5</h3>
+                <p>Average of Wiyasa Group Workers years experience</p>
+            </div>
+            <div class="stat-box">
+                <h3>100+</h3>
+                <p>Project builded, all over South East Asia Country</p>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Navbar scroll behavior
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            const currentScroll = window.pageYOffset;
+
+            if (currentScroll > lastScroll) {
+                nav.style.transform = 'translateY(-100%)';
+            } else {
+                nav.style.transform = 'translateY(0)';
+            }
+            lastScroll = currentScroll;
+        });
+
+        // Slider functionality
+        const prevBtn = document.querySelector('.prev');
+        const nextBtn = document.querySelector('.next');
+        let currentSlide = 0;
+
+        prevBtn.addEventListener('click', () => {
+            currentSlide = Math.max(currentSlide - 1, 0);
+            updateSlides();
+        });
+
+        nextBtn.addEventListener('click', () => {
+            currentSlide = Math.min(currentSlide + 1, 1);
+            updateSlides();
+        });
+
+        function updateSlides() {
+            const images = document.querySelectorAll('.image-grid img');
+            images.forEach((img, index) => {
+                img.style.opacity = index === currentSlide ? '1' : '0.7';
+                img.style.transform = index === currentSlide ? 'scale(1)' : 'scale(0.95)';
+            });
+        }
+    </script>
+</body>
 </html>
