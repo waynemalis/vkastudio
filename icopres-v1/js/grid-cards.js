@@ -1,6 +1,7 @@
 // Selecciona el div con id 'tiny-cards'
 const tinyCards = document.getElementById('tiny-cards');
 const largeCard = document.getElementById('services-card-0');
+const title = largeCard.querySelector('.title');
 const content = largeCard.querySelector('.content');
 
 // Obtén todos los divs dentro de 'tiny-cards' que tengan un id con el patrón 'services-card-(número)'
@@ -10,6 +11,7 @@ let currentCard = document.getElementById('services-card-1')
 console.log(serviceCards); // Muestra los divs encontrados
 
 function updateContent() {
+  title.innerHTML = currentCard.querySelector('.title').innerHTML;
   content.innerHTML = currentCard.querySelector('.content').innerHTML;
 }
 
