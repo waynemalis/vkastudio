@@ -215,6 +215,12 @@ section {
   background: rgba(40, 40, 50, 0.95);
 }
 
+#services-card-0 .content {
+  display: flex;
+  gap: 16px;
+  font-size: 16px !important;
+}
+
 #services-card-0 li {
   opacity: 0.6;
   margin-left: 4%;
@@ -223,7 +229,6 @@ section {
 
 #services-card-0 li {
   list-style-type: disc;
-  font-size: 16px;
 }
 
 #services-card-1 {
