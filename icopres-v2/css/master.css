@@ -1,0 +1,390 @@
+@import url('style.css');
+@import url('test.css');
+@import url('carousel.css');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+body {
+  background: #000;
+}
+
+nav {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0);
+  transition: all 0.15s ease-in-out;
+  z-index: 1000;
+}
+
+#navs {
+  display: none;
+}
+
+.nav-container {
+  margin: 0 auto;
+  height: 100%;
+  padding: 1rem var(--mh);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.rounded {
+  background: #fff;
+  width: fit-content;
+  border-radius: 1.5vmin;
+  color: #000 !important;
+  padding: 10px 18px;
+  gap: 8px;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.rounded p, .rounded i {
+  display: inline-block;
+}
+
+.rounded .feather {
+  width: 20px !important;
+  height: auto !important;
+}
+
+.scrolled, .openned {
+  backdrop-filter: blur(20px);
+  background: rgba(0, 89, 255, 0.7) !important;
+  transition: all 0.15s ease-in-out;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  width: auto;
+  height: 40px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  font-family: Arial, sans-serif;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.ham {
+  display: none;
+}
+
+.nav-links a:hover {
+  color: var(--primary-blue);
+}
+
+section {
+  width: 100%;
+}
+
+#hero {
+  margin: 0;
+  height: 100vh;
+  position: relative;
+}
+
+#hero .hero-container {
+  font-family: 'Nunito Sans';
+  letter-spacing: 0.05rem;
+  width: 100%;
+  height: 100%;
+  padding: var(--mh);
+  color: #fff;
+  padding-bottom: 8vw;
+  justify-content: center;
+  align-content: flex-end;
+  align-items: center;
+  position: absolute;
+}
+
+.hero-container h1 {
+  font-size: calc(100% + 4vw);
+  font-weight: 500;
+}
+
+.hero-container .p {
+  max-width: 65%;
+  font-size: calc(100% + 0.125vw);
+  font-weight: 500;
+}
+
+#hero .cv-container {
+  padding: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+  margin-top: 180px;
+}
+
+.background {
+  width: 100vw;
+  height: 100vh;
+  background: url('../images/bg_2.jpg');
+  background-size: cover;
+  background-position: center;
+  position: fixed;
+  z-index: -1;
+}
+
+#servicios {
+  justify-content: center;
+}
+
+#servicios .container {
+  width: 100%;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+.scroll-buttons {
+  justify-content: flex-end;
+}
+
+.container-header {
+  display: flex;
+  align-content: flex-start;
+  align-items: flex-start;
+  margin-bottom: 30px;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+#tiny-cards {
+  flex-wrap: nowrap !important;
+  user-select: none;
+}
+
+.tiny-card {
+  height: auto;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s;
+  pointer-events: none;
+}
+
+.tiny-card .content {
+  display: flex;
+}
+
+.tiny-card .icon-btn {
+  transition: all 0.3s;
+}
+
+.tiny-card:hover .icon-btn {
+  background: white;
+  color: black;
+}
+
+.card-container {
+  background: rgba(0, 0, 0, 0.5);
+  height: 100%;
+  transition: all 0.3s;
+}
+
+.tiny-card:hover:not(.active) .card-container {
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.active .card-container {
+  background: rgba(0, 89, 255, 0.8);
+}
+
+.active .icon-btn {
+  background: white;
+  color: black;
+}
+
+#services-card-0 .card-container {
+  background: rgba(40, 40, 50, 0.95);
+}
+
+#services-card-0 li {
+  opacity: 0.6;
+  margin-left: 4%;
+  padding-right: 8%;
+}
+
+#services-card-0 li {
+  list-style-type: disc;
+  font-size: 16px;
+}
+
+#services-card-1 {
+  background: url('../images/card_1.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+#services-card-2 {
+  background: url('../images/card_2.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+#services-card-3 {
+  background: url('../images/card_3.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+#services-card-4 {
+  background: url('../images/card_4.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.contact-form .container-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.container-form p {
+  font-size: calc(100% + 0.15vw);
+}
+
+iframe {
+  width: 100%;
+  height: 650PX;
+}
+
+input, textarea {
+  display: inline-block;
+  font-family: 'Nunito Sans';
+  resize: none;
+  border: none;
+  border-bottom: 2px solid;
+  border-color: #CCC;
+  width: 100%;
+  font-size: 16px;
+  padding: 10px;
+}
+
+#scroll-row {
+  flex-direction: row;
+}
+
+#subfooter {
+  font-family: 'Nunito Sans';
+}
+
+@media (max-width: 1050px) {
+  .ham {
+    display: flex;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .open-nav {
+    width: 100% !important;
+    display: grid !important;
+    justify-content: flex-start;
+    flex-direction: column;
+    position: sticky;
+    padding: 30px;
+    top: 0;
+    left: 0;
+    transition: all 0.3s;
+  }
+
+  .scrolled .open-nav {
+    transition: all 0.15s ease-in-out;
+  }
+
+  .hero-container .p, #hero h1 {
+    text-align: center;
+    max-width: 100%;
+  }
+
+  .hero-container .p {
+    font-size: calc(100% + 0.015vw);
+  }
+
+  #hero .cv-container {
+    max-width: 100%;
+    align-content: flex-start;
+    flex-direction: column;
+    text-align: center;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 1000px) {
+  #contact-form {
+    flex-direction: column-reverse !important;
+  }
+
+  iframe {
+    height: 300px !important;
+  }
+}
+
+
+@media (max-width: 1100px) {
+  #services-card-0 {
+    display: none !important;
+  }
+  .tiny-card {
+    aspect-ratio: auto;
+  }
+
+  .tiny-card:not(.active) {
+    transition: all 0.3s;
+  }
+
+  .tiny-card .active {
+    height: 100% !important;
+    transition: all 0.3s;
+  }
+
+  .active .content {
+    display: inline;
+  }
+}
