@@ -354,6 +354,12 @@ input, textarea {
     text-align: center;
     gap: 2rem;
   }
+
+  .tiny-card {
+    font-size: 13px;
+    flex: 0 0 600px !important;
+    max-width: 600px !important;
+  }
 }
 
 @media (max-width: 1000px) {
