@@ -1,0 +1,236 @@
+/* Fuentes */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+
+/* Tema */
+:root {
+  /* Tema */
+  --mh: 8vw;
+
+  /* radius */
+  --trad: 0.5vmin;
+  --mrad: 1vmin;
+  --lrad: 2.5vmin;
+  --xlrad: 15vmin;
+
+  /* gaps */
+  --mgap: 8px;
+  --lgap: 16px;
+
+  /* font size */
+  --tf-size: calc(100% + 0.01vw);
+  --mf-size: calc(100% + 1.5vw);
+  --lf-size: calc(100% + 3vw);
+
+  /* colors */
+  --primary-blue: #418CFF;
+  --primary-contrast: #FFF;
+  --primary-border: #CCC;
+
+  --secondary-contrast: #000;
+}
+
+.flex {
+  display: flex;
+}
+
+.column-display {
+  flex-direction: column;
+}
+
+.inline {
+  display: inline-block;
+}
+
+/* Componentes */
+/* botones */
+.rounded-btn {
+  display: flex;
+  font-family: 'Poppins';
+  font-weight: 400;
+  font-size: 14px;
+  background: white;
+  color: black;
+  padding: 14px 24px;
+  border-radius: var(--mrad);
+  border: 1px solid;
+  align-content: center;
+  align-items: center;
+  gap: var(--lgap);
+
+  .feather {
+    width: 18px !important;
+    height: auto !important;
+  }
+}
+
+.primary-btn {
+  display: flex;
+  padding: 14px 24px;
+  align-content: center;
+  align-items: center;
+  gap: var(--lgap);
+}
+
+.icon-btn {
+  display: flex;
+  padding: calc(5px + 0.25vw); !important;
+}
+
+/* textos */
+.title {
+  font-size: calc(100% + 0.5vw);
+}
+
+.between {
+  display: flex !important;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* fill */
+.max-50 {
+  max-width: 50%;
+  display: inline-block;
+}
+
+/* align */
+.align-center {
+  text-align: center;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}
+
+/* gaps */
+.gap1 {
+  gap: 8px;
+}
+
+.gap2 {
+  gap: 16px;
+}
+
+.gap3 {
+  gap: 8rem;
+}
+
+/* paddings */
+.pd-1 {
+  font-family: 'Poppins';
+  padding: 2rem 6rem !important;
+}
+
+.pd-2 {
+  font-family: 'Poppins';
+  padding: 6rem 6rem !important;
+}
+
+.pad1 {
+  font-family: 'Poppins';
+  padding: 2rem !important;
+}
+
+.pad2 {
+  font-family: 'Poppins';
+  padding: 6rem !important;
+}
+
+/* icon size */
+.fs1 {
+  width: 14px;
+  height: auto;
+}
+
+.fs2 {
+  width: 16px;
+  height: auto;
+}
+
+.fs3 {
+  width: 18px;
+  height: auto;
+}
+
+.fs4 {
+  width: 20px;
+  height: auto;
+}
+
+.fs5 {
+  width: 22px;
+  height: auto;
+}
+
+.fs6 {
+  width: 24px;
+  height: auto;
+}
+
+/* bordes */
+
+.b1 {
+  border: 1px solid;
+  border-color: var(--primary-border);
+}
+
+.b-white {
+  border: 1px solid;
+  border-color: white;
+}
+
+/* radios */
+
+.r1 {
+  border-radius: var(--trad);
+}
+
+.r2 {
+  border-radius: var(--mrad);
+  overflow: hidden !important;
+}
+
+.r3 {
+  border-radius: var(--lrad);
+}
+
+.r4 {
+  border-radius: var(--xlrad);
+}
+
+/* colores de fondo */
+
+.bg-primary {
+  background: var(--primary-blue);
+  color: white;
+}
+
+.bg-white {
+  background: white;
+  color: black;
+}
+
+.bg-black {
+  background: black !important;
+  color: white;
+}
+
+.bg-contrast {
+  background: var(--primary-contrast);
+  color: var(--secondary-contrast);
+}
+
+.c-white {
+  color: white;
+}
+
+@media (max-width: 800px) {
+  .max-50 {
+    max-width: 100%;
+  }
+
+  [class*='pd-'] {
+    padding: 3rem 30px !important;
+  }
+}
