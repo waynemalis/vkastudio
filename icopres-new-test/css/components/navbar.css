@@ -4,6 +4,7 @@
   --transparency: 0.6;
   --blur: 16px;
   --invert: 1;
+  --scale: 1;
 }
 
 nav {
@@ -120,10 +121,12 @@ nav .container {
 @keyframes fade-img {
   from {
     filter: invert( var(--invert) );
+    scale: 1;
   }
 
   to {
     filter: none;
+    scale: var(--scale);
   }
 }
 
@@ -144,10 +147,24 @@ nav .container {
     --transparency: 0;
     --blur: 0;
     --invert: 0;
+    --scale: 0.8;
   }
 
   .nav-mobile {
     display: flex;
+  }
+
+  .nav-mobile .container {
+    max-width: 100% !important;
+    padding: 1rem !important;
+  }
+
+  .nav-links-mobile {
+    gap: 1.5rem;
+  }
+
+  .nav-links-mobile a {
+    font-size: 14px;
   }
 
   .nav-links {
