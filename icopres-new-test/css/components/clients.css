@@ -1,0 +1,47 @@
+#clients {
+  pointer-events: none;
+}
+
+#clients .container {
+  height: auto;
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+  animation: clients-animation ease-in-out both;
+  animation-timeline: view();
+  animation-range: entry 25%;
+}
+
+#clients .title {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+#clients .description {
+  text-align: center;
+  font-size: clamp(16px, 2vw, 1.1rem);
+  width: 50%;
+}
+
+@media (max-width: 768px) { /* Para pantallas pequeñas */
+  #clients .description {
+    width: 100%;
+  }
+}
+
+@keyframes clients-animation {
+  0% {
+    opacity: 0;
+    scale: 0.95;
+    translate: 0 -30vh;
+  }
+
+  100% {
+    opacity: 1;
+    scale: 1;
+    translate: 0 -50px;
+  }
+}

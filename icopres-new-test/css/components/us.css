@@ -1,0 +1,43 @@
+#us .container {
+  height: 500px;
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+  animation: us-animation ease-in-out both;
+  animation-timeline: view();
+  animation-range: entry 25%;
+}
+
+#us .title {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+#us .description {
+  text-align: center;
+  font-size: clamp(16px, 2vw, 1.1rem);
+  width: 50%;
+}
+
+@media (max-width: 768px) { /* Para pantallas pequeñas */
+  #us .description {
+    width: 100%;
+  }
+}
+
+@keyframes us-animation {
+  0% {
+    opacity: 0;
+    scale: 0.95;
+    translate: 0 -30vh;
+  }
+
+  100% {
+    opacity: 1;
+    scale: 1;
+    translate: 0 -50px;
+  }
+}
