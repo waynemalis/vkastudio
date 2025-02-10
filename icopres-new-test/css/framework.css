@@ -34,6 +34,11 @@
   background: #ccc;
 }
 
+.col-1 {
+  flex: 1;
+  overflow: hidden;
+}
+
 /* sm (small): 576px+ */
 @media (min-width: 576px) {
   .col-sm-1 { flex: 0 0 8.333333%; max-width: 8.333333%; }
