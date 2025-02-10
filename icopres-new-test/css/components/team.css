@@ -7,7 +7,7 @@
   background: linear-gradient(180deg, rgba(99,183,255,1) 0%, rgba(255,255,255,1) 100%);
   height: auto;
   border-radius: 16px;
-  padding: 4rem;
+  padding: 4rem 16rem;
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -32,12 +32,15 @@
 }
 
 #team .row {
-  gap: 3vh;
+  gap: 2vh;
+  padding: 2rem;
+  column-count: 4 !important;
   justify-content: center;
   align-items: center;
 }
 
 #team .row [class*='col-'] {
+  flex: 20%;
   border-radius: 16px;
   aspect-ratio: 1 / 1;
   justify-content: center;
@@ -54,13 +57,21 @@
   position: absolute;
   object-fit: cover !important;
   object-position: center;
-  filter: grayscale(1);
-  transition: all 0.5s;
+  filter: grayscale(1) brightness(1.5) contrast(0.8);
+  transition: filter 0.5s, scale 0.5s, opacity 0.35s;
 }
 
 #team [class*='col-']:hover img {
-  filter: grayscale(0);
+  filter: grayscale(0) brightness(1.5) contrast(0.9);
   scale: 1.1;
+}
+
+#team [class*='col-'] .secondary-img {
+  opacity: 0;
+}
+
+#team [class*='col-']:hover .secondary-img {
+  opacity: 1;
 }
 
 #team [class*='col-'] .card {
