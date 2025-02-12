@@ -62,6 +62,9 @@
   }
 
   #us .card .title {
+    animation: none;
+    color: #207EE8;
+    opacity: 1;
     justify-content: flex-start;
     width: 100%;
   }
