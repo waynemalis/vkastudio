@@ -1,6 +1,7 @@
 #us .container {
-  height: 500px;
-  padding: 2.5rem;
+  max-width: 70%;
+  height: auto;
+  padding: 8rem 2.5rem;
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -11,18 +12,60 @@
   animation-range: entry 25%;
 }
 
+#us .card {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: row;
+  animation: card-section-in-animation ease-in-out both;
+  animation-timeline: view();
+  animation-range: 0 170px;
+  gap: 2rem;
+}
+
 #us .title {
-  font-size: 1.5rem;
-  font-weight: 600;
+  color: black;
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+
+#us .card .title {
+  opacity: 0;
+  justify-content: flex-end;
+  align-items: center;
+  display: flex;
+  gap: 0.5rem;
+  color: #919096;
+  font-size: 1.5rem !important;
+  font-weight: 500;
+  width: 20%;
+  animation: card-title-in-animation ease-in-out both;
+  animation-timeline: view();
+  animation-range: 0 300px;
 }
 
 #us .description {
-  text-align: center;
-  font-size: clamp(16px, 2vw, 1.1rem);
+  font-weight: 500;
+  text-align: justify;
+  font-size: clamp(0.6rem,1.67vw + 1.23rem,14px);
   width: 50%;
 }
 
-@media (max-width: 768px) { /* Para pantallas pequeñas */
+@media (max-width: 1100px) { /* Para pantallas pequeñas */
+  #us .container {
+    padding: 8rem 0;
+  }
+
+  #us .card {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  #us .card .title {
+    justify-content: flex-start;
+    width: 100%;
+  }
+
   #us .description {
     width: 100%;
   }
@@ -39,5 +82,31 @@
     opacity: 1;
     scale: 1;
     translate: 0 -50px;
+  }
+}
+
+@keyframes card-section-in-animation {
+  0% {
+    opacity: 0;
+    translate: -200px 0;
+  }
+
+  100% {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+@keyframes card-title-in-animation {
+  70% {
+    opacity: 0;
+    color: #919096;
+    translate: 150px 0;
+  }
+
+  100% {
+    opacity: 1;
+    color: #207EE8;
+    translate: 0 0;
   }
 }

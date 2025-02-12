@@ -7,7 +7,7 @@
   background: linear-gradient(180deg, rgba(99,183,255,1) 0%, rgba(255,255,255,1) 100%);
   height: auto;
   border-radius: 16px;
-  padding: 4rem 16rem;
+  padding: 4rem clamp(1.25rem,2.64vw + 20.63rem,3.5rem);
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -18,22 +18,32 @@
   animation-range: entry 25%;
 }
 
+#team .information {
+  display: flex;
+  gap: 2rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+}
+
 #team .title {
   color: white;
   font-size: 1.8rem;
   font-weight: 600;
 }
 
-#team .description {
+#team .information .description {
   color: white;
   text-align: center;
   font-size: clamp(16px, 2vw, 1.1rem);
-  width: 50%;
 }
 
 #team .row {
   gap: 2vh;
-  padding: 2rem;
+  padding: 0 2rem 2rem 2rem;
+  min-width: 60%;
+  max-width: 60%;
   column-count: 4 !important;
   justify-content: center;
   align-items: center;
@@ -97,6 +107,7 @@
 }
 
 #team .card .description {
+  color: white;
   text-align: left;
   width: 100%;
 }
@@ -106,14 +117,21 @@
   translate: 0 0;
 }
 
-@media (max-width: 768px) { /* Para pantallas pequeñas */
+@media (max-width: 1400px) { /* Para pantallas pequeñas */
   #team .container {
+    padding: 0;
+  }
+
+  #team .information {
     padding: 2.5rem;
+    width: 100%;
   }
 
   #team .row {
     width: 100%;
-    height: 300px;
+    aspect-ratio: 1 / 1;
+    max-width: 100%;
+    max-height: 400px;
     display: flex !important;
     flex-direction: column;
     margin: auto;
@@ -125,11 +143,20 @@
   }
 
   #team .row .col-1 {
-    width: 100%;
+    width: 300px;
     height: 300px;
-    flex: auto !important;
+    aspect-ratio: 1 / 1;
+    flex: 100%;
     scroll-snap-align: center;
     left: 0;
+    animation: slider ease-in-out both;
+    animation-timeline: view(x);
+    animation-range: entry 25%, exit 80%;
+  }
+
+  #team .row .col-1 .card {
+    opacity: 1;
+    translate: 0 0;
   }
 
   #team [class*='col-'] img {
@@ -141,13 +168,23 @@
     opacity: 1;
   }
 
-  #team [class*='col-'] .card {
-    opacity: 1;
-    translate: 0 0;
-  }
-
   #team .description {
     width: 100%;
+    text-align: left;
+  }
+}
+
+@keyframes slider {
+  0% {
+    opacity: 0.2;
+    scale: 0.9;
+    z-index: 0;
+    filter: blur(1px);
+  }
+
+  100% {
+    opacity: 1;
+    scale: 1;
   }
 }
 
