@@ -6,7 +6,6 @@
   flex-direction: column;
   gap: 2rem;
   justify-content: center;
-  overflow: hidden;
   align-items: center;
   animation: us-animation ease-in-out both;
   animation-timeline: view();
