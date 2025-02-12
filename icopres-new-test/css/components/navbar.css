@@ -38,7 +38,6 @@ nav .container {
 }
 
 .logo img {
-  filter: invert(1);
   width: auto;
   height: 40px;
   animation: fade-img ease-in-out both;
@@ -120,19 +119,17 @@ nav .container {
 
 @keyframes fade-img {
   from {
-    filter: invert( var(--invert) );
     scale: 1;
   }
 
   to {
-    filter: none;
     scale: var(--scale);
   }
 }
 
 @keyframes fade-a {
   from {
-    color: black;
+    color: white;
   }
 
   to {

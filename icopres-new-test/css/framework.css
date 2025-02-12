@@ -39,6 +39,11 @@
   overflow: hidden;
 }
 
+.col-2 {
+  flex: 0 0 46%;
+  max-width: 46%;
+}
+
 /* sm (small): 576px+ */
 @media (min-width: 576px) {
   .col-sm-1 { flex: 0 0 8.333333%; max-width: 8.333333%; }
@@ -54,6 +59,7 @@
 /* md (medium): 980px+ */
 @media (max-width: 980px) {
   .col { flex: 0 0 100%; max-width: 100% !important; }
+  .col-2 { flex: 0 0 100%; max-width: 100% !important; }
 }
 
 /* md (medium): 768px+ */

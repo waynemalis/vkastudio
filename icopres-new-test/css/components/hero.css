@@ -1,10 +1,9 @@
 #hero .container {
-  margin-top: 84px;
   background: url('../../images/bg_2.jpg');
   background-repeat: no-repeat;
   background-size: cover;
-  height: calc(100vh - 84px);
-  padding: 2.5rem;
+  height: calc(100vh);
+  padding: 32px;
   color: white;
   display: flex;
   flex-direction: column;
@@ -18,13 +17,63 @@
 
 #hero h1 {
   text-align: center;
-  font-size: 5rem;
+  font-weight: 400;
+  font-size: clamp(40px, 5vw, 80px);
 }
 
-#hero p {
+#hero .p {
   text-align: center;
-  font-size: clamp(16px, 2vw, 1.25rem);
+  color: #9A9FA0;
+  font-size: clamp(18px, 5vw, 24px);
   width: 50%;
+}
+
+#hero .scroll-down {
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  bottom: 120px;
+  gap: 1rem;
+}
+
+#hero .scroll-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+  background: #ffffff0d;
+  border: 1px solid #ffffff1f;
+  backdrop-filter: blur(16px);
+  width: 40px;
+  height: 40px;
+}
+
+#hero .scroll-icon .feather {
+  width: 20px;
+  height: 20px;
+}
+
+#hero .icon {
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+  background: #ffffff0d;
+  border: 1px solid #ffffff1f;
+  backdrop-filter: blur(16px);
+  width: 40px;
+  height: 40px;
+  bottom: 32px;
+  right: 32px;
+}
+
+#hero .icon .feather {
+  fill: white !important;
+  width: 20px;
+  height: 20px;
+  stroke: none;
 }
 
 @media (max-width: 768px) { /* Para pantallas pequeñas */
@@ -35,7 +84,7 @@
 
   #hero h1 {
     text-align: center;
-    font-size: 2rem;
+    line-height: 1;
   }
 
 
@@ -56,8 +105,9 @@
   }
 
   100% {
-    opacity: 0;
+    opacity: 1;
     scale: 0.8;
     border-radius: 16px;
+    translate: 0 100px;
   }
 }
