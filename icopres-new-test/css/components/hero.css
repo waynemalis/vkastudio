@@ -25,6 +25,7 @@
   text-align: center;
   color: #9A9FA0;
   font-size: clamp(18px, 5vw, 24px);
+  font-weight: 400;
   width: 50%;
 }
 
@@ -88,8 +89,7 @@
   }
 
 
-  #hero p {
-    font-weight: 500;
+  #hero .p {
     width: 100%;
   }
 }
