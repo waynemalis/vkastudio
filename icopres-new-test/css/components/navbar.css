@@ -147,6 +147,10 @@ nav .container {
     --scale: 0.8;
   }
 
+  nav {
+    position: absolute;
+  }
+
   .nav-mobile {
     display: flex;
   }

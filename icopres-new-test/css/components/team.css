@@ -37,8 +37,8 @@
   position: relative;
   gap: 1rem;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
+  justify-content: center;
+  align-items: center;
   width: 56%;
 }
 
@@ -61,9 +61,9 @@
 #team .information .description {
   color: #ffffff99;
   font-weight: 400;
-  text-align: left;
+  text-align: center;
   font-size: clamp(0.6rem,1.67vw + 1.23rem,16px);
-  width: 50%;
+  width: 70%;
 }
 
 #team .row {
@@ -154,6 +154,8 @@
   }
 
   #team .information {
+    justify-content: flex-start;
+    align-items: flex-start;
     padding: 32px;
     width: 100%;
   }

@@ -61,11 +61,37 @@
   animation-range: 0 100px;
 }
 
+#us .card .feather {
+  display: none;
+}
+
 #us .description {
   color: #06272c99;
   font-weight: 400;
   text-align: left;
   font-size: clamp(0.6rem,1.67vw + 1.23rem,16px);
+}
+
+#us .list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+#us .list .item {
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+#us .list .item .feather {
+  display: inline-block;
+  translate: 0 3px;
+  opacity: 0.4;
+  width: 18px;
+  height: 18px;
 }
 
 @media (max-width: 1100px) { /* Para pantallas pequeñas */

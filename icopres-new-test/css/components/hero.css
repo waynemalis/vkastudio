@@ -39,9 +39,11 @@
 }
 
 #hero .scroll-icon {
-  display: flex;
+  display: inline-block;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+  overflow: hidden;
   border-radius: 100%;
   background: #ffffff0d;
   border: 1px solid #ffffff1f;
@@ -50,7 +52,15 @@
   height: 40px;
 }
 
-#hero .scroll-icon .feather {
+#hero .scroll-icon .ico {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  animation: scroll-icon 1.5s ease-in-out infinite;
+}
+
+#hero .scroll-icon .ico .feather {
   width: 20px;
   height: 20px;
 }
@@ -92,6 +102,15 @@
   #hero .p {
     width: 100%;
   }
+
+  #hero .scroll-down {
+    bottom: 15%;
+  }
+
+  #hero .icon {
+    top: 16px;
+    right: 16px;
+  }
 }
 
 @keyframes hero-animation {
@@ -109,5 +128,22 @@
     scale: 0.8;
     border-radius: 16px;
     translate: 0 100px;
+  }
+}
+
+@keyframes scroll-icon {
+  0% {
+    opacity: 0.6;
+    translate: 0 -5%;
+  }
+
+  50% {
+    opacity: 1;
+    translate: 0 5%;
+  }
+
+  100% {
+    opacity: 0.6;
+    translate: 0 -5%;
   }
 }
