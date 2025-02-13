@@ -51,12 +51,20 @@
 }
 
 #clients .description {
-  text-align: center;
+  text-align: left;
   font-size: clamp(16px, 2vw, 1.1rem);
   width: 50%;
 }
 
 @media (max-width: 768px) { /* Para pantallas pequeñas */
+  #clients .container {
+    padding: 32px;
+  }
+
+  #clients .information {
+    max-width: 100%;
+  }
+
   #clients .description {
     width: 100%;
   }
