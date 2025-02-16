@@ -1,0 +1,149 @@
+#hero .container {
+  background: url('../../images/bg_2.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: calc(100vh);
+  padding: 32px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+  animation: hero-animation ease both;
+  animation-timeline: view();
+  animation-range: 100vh;
+}
+
+#hero h1 {
+  text-align: center;
+  font-weight: 400;
+  font-size: clamp(40px, 5vw, 80px);
+}
+
+#hero .p {
+  text-align: center;
+  color: #9A9FA0;
+  font-weight: 400;
+  font-size: clamp(18px, 5vw, 24px);
+  width: 50%;
+}
+
+#hero .scroll-down {
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  bottom: 120px;
+  gap: 1rem;
+}
+
+#hero .scroll-icon {
+  display: inline-block;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  overflow: hidden;
+  border-radius: 100%;
+  background: #ffffff0d;
+  border: 1px solid #ffffff1f;
+  backdrop-filter: blur(16px);
+  width: 40px;
+  height: 40px;
+}
+
+#hero .scroll-icon .ico {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  animation: scroll-icon 1.5s ease-in-out infinite;
+}
+
+#hero .scroll-icon .ico .feather {
+  width: 20px;
+  height: 20px;
+}
+
+#hero .icon {
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+  background: #ffffff0d;
+  border: 1px solid #ffffff1f;
+  backdrop-filter: blur(16px);
+  width: 40px;
+  height: 40px;
+  bottom: 32px;
+  right: 32px;
+}
+
+#hero .icon .feather {
+  fill: white !important;
+  width: 20px;
+  height: 20px;
+  stroke: none;
+}
+
+@media (max-width: 768px) { /* Para pantallas pequeñas */
+  #hero .container {
+    margin-top: 0;
+    height: 100vh;
+  }
+
+  #hero h1 {
+    text-align: center;
+    line-height: 1;
+  }
+
+
+  #hero .p {
+    width: 100%;
+  }
+
+  #hero .scroll-down {
+    bottom: 15%;
+  }
+
+  #hero .icon {
+    top: 16px;
+    right: 16px;
+  }
+}
+
+@keyframes hero-animation {
+  0% {
+    opacity: 1;
+    scale: 1;
+  }
+
+  25% {
+    border-radius: 16px;
+  }
+
+  100% {
+    opacity: 1;
+    scale: 0.8;
+    border-radius: 16px;
+    translate: 0 100px;
+  }
+}
+
+@keyframes scroll-icon {
+  0% {
+    opacity: 0.6;
+    translate: 0 -5%;
+  }
+
+  50% {
+    opacity: 1;
+    translate: 0 5%;
+  }
+
+  100% {
+    opacity: 0.6;
+    translate: 0 -5%;
+  }
+}
