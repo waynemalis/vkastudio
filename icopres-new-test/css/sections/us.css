@@ -156,7 +156,7 @@
 
 @media (max-width: 1100px) { /* Para pantallas pequeñas */
   #us .container {
-    padding: 8rem 1rem;
+    padding: 8rem 1rem 4rem 1rem;
     max-width: 100%;
     gap: 1rem;
   }

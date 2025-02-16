@@ -69,9 +69,19 @@
   width: 70%;
 }
 
+#services .contact-btn {
+  align-self: center;
+}
+
+#services .hover-btn {
+  justify-content: center;
+  align-items: center;
+  padding: 8px 32px;
+}
+
 @media (max-width: 1400px) { /* Para pantallas pequeñas */
   #services {
-    padding: 4rem 1rem;
+    padding: 8rem 1rem 4rem 1rem;
     z-index: 2 !important;
   }
 
@@ -87,13 +97,8 @@
     width: 100%;
   }
 
-  #services .information .title {
-    text-align: left;
-  }
-
   #services .information .description {
     width: 100%;
-    text-align: left;
   }
 }
 
