@@ -28,16 +28,31 @@
   animation-range: 0 200px;
 }
 
+.chat .notification {
+  position: absolute;
+  background: #87B9E5;
+  border-radius: 100%;
+  width: 100%;
+  height: 100%;
+  animation: notification 2.5s ease-out infinite;
+  z-index: 0;
+}
+
 .chat .icon {
   color: white;
   width: 100%;
   height: 100%;
+  z-index: 1;
+}
+
+.chat img {
+  filter: invert(1);
 }
 
 @media (max-width: 980px) {
   .chat {
     animation: none;
-    bottom: 12.5%;
+    bottom: 10%;
     right: 16px;
   }
 }
@@ -63,5 +78,20 @@
     background: #00000060;
     border: 1px solid #ffffff1f;
     bottom: 1.9rem;
+  }
+}
+
+@keyframes notification {
+  0% {
+    opacity: 1;
+    scale: 0.1;
+  }
+  50% {
+    opacity: 0;
+    scale: 1.8;
+  }
+  100% {
+    opacity: 0;
+    scale: 1.8;
   }
 }

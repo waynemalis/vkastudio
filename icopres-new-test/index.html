@@ -40,8 +40,16 @@
     </div>
 
     <div class="chat">
-      <div class="container-chat">
-        <i class="icon" data-feather="help-circle"></i>
+      <button class="container-chat" onclick="toggleChat()">
+        <div class="notification"></div>
+        <img class="icon" src="images/icons/message-help.svg">
+      </button>
+      <div class="chat-container" id="chatContainer">
+          <div class="chat-header">
+              Chat de Ayuda
+          </div>
+          <div class="chat-content" id="chatContent">
+          </div>
       </div>
     </div>
 
@@ -298,5 +306,6 @@
     </section>
 
     <script src="js/feather.js"></script>
+    <script src="js/chat.js"></script>
   </body>
 </html>
