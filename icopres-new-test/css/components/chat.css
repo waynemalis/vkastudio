@@ -9,7 +9,7 @@
   animation: scroll-chat-icon ease both;
   animation-timeline: scroll(root);
   animation-range: 0 100px;
-  z-index: 1000;
+  z-index: 998;
 }
 
 .chat .container-chat {
