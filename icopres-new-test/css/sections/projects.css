@@ -1,9 +1,9 @@
-#team {
+#projects {
   padding: 1rem;
   z-index: 2 !important;
 }
 
-#team .container {
+#projects .container {
   height: auto;
   border-radius: 16px;
   overflow: hidden;
@@ -14,13 +14,13 @@
   gap: 2rem;
   justify-content: center;
   align-items: center;
-  animation: team-animation ease-in-out both;
+  animation: projects-animation ease-in-out both;
   animation-timeline: view();
   animation-range: entry 2%;
   z-index: 1;
 }
 
-#team .background {
+#projects .background {
   background: rgb(99,183,255);
   background-image: url(data:image/png;base64,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);
   mask-image: linear-gradient(180deg,#000 0%, #0000 100%);
@@ -32,7 +32,7 @@
   height: 100%;
 }
 
-#team .information {
+#projects .information {
   display: flex;
   position: relative;
   gap: 1rem;
@@ -42,8 +42,7 @@
   width: 56%;
 }
 
-#team .main-title {
-  color: white;
+#projects .main-title {
   text-transform: uppercase;
   letter-spacing: 0.05rem;
   padding: 0.5rem;
@@ -53,166 +52,142 @@
   border-bottom: 1px solid #e8ecec;
 }
 
-#team .information .title {
-  color: white;
+#projects .information .title {
+  color: black;
   font-size: 20px !important;
   font-weight: 400;
 }
 
-#team .information .description {
-  color: #ffffff99;
+#projects .information .description {
+  color: #06272c99;
   font-weight: 400;
   text-align: center;
   font-size: clamp(0.6rem,1.67vw + 1.23rem,16px);
   width: 70%;
 }
 
-#team .row {
-  gap: 2vh;
-  position: relative;
-  padding: 0 2rem 2rem 2rem;
-  min-width: 60%;
-  max-width: 60%;
-  column-count: 4 !important;
-  justify-content: center;
-  align-items: center;
-  z-index: 2;
+#projects .row {
+  gap: 16px;
+  max-width: 56%;
 }
 
-
-#team .row .col-1 {
-  flex: 20%;
-}
-
-#team .row [class*='col-'] {
-  border-radius: 16px;
-  aspect-ratio: 1 / 1;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  overflow: hidden;
-  z-index: 99;
-}
-
-#team [class*='col-'] img {
-  width: 100%;
-  height: 100%;
+#projects .album {
   display: flex;
-  position: absolute;
-  object-fit: cover !important;
-  object-position: center;
-  filter: grayscale(1) brightness(1.5) contrast(0.8);
-  transition: filter 0.5s, scale 0.5s, opacity 0.35s;
-}
-
-#team [class*='col-']:hover img {
-  filter: grayscale(0) brightness(1.5) contrast(0.9) saturate(0.75);
-  scale: 1.1;
-}
-
-#team [class*='col-'] .secondary-img {
-  opacity: 0;
-}
-
-#team [class*='col-']:hover .secondary-img {
-  opacity: 1;
-}
-
-#team [class*='col-'] .card {
-  width: 100%;
-  height: 100%;
-  display: flex;
+  position: relative;
   flex-direction: column;
-  justify-content: flex-end;
-  position: absolute;
-  padding: 1rem;
-  opacity: 0;
-  background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 50%);
-  translate: 0 50px;
-  transition: opacity 0.5s, translate 0.5s;
-}
-
-#team .card .title {
+  overflow: hidden;
+  border-radius: 32px;
+  width: 200px;
   color: white;
-  font-size: clamp(14px, 5vw, 20px);
+  background: black;
+  box-shadow: inset 0 0 120px rgb(0,0,0);
+  transition: box-shadow 0.5s;
+  padding: 16px;
+  cursor: pointer;
+  aspect-ratio: 1 / 1;
 }
 
-#team .card .description {
-  color: #ffffff99;
-  text-align: left;
-  font-size: clamp(14px, 5vw, 16px);
-  width: 100%;
+#projects .album:hover {
+  box-shadow: inset 0 0 120px #63b7ff;
 }
 
-#team [class*='col-']:hover .card {
-  opacity: 1;
-  translate: 0 0;
+#projects .album .card {
+  width: 70%;
+  position: absolute;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 16px;
+  border: 3px solid white;
+  box-shadow: 0 -10px 30px #00000060;
+  transition: box-shadow 0.5s;
+  aspect-ratio: 1 / 1;
 }
 
-@media (max-width: 1400px) { /* Para pantallas pequeñas */
-  #team .container {
+#projects .album .photo-1 {
+  transform: rotate(-15deg) !important;
+  translate: 20px 100%;
+  transition: transform 0.5s, translate 0.5s;
+}
+
+#projects .album:hover .photo-1 {
+  transform: rotate(-10deg) !important;
+  translate: -50px 55%;
+}
+
+#projects .album .photo-2 {
+  transform: rotate(-10deg) !important;
+  translate: 50px 70%;
+  transition: transform 0.5s, translate 0.5s;
+}
+
+#projects .album:hover .photo-2 {
+  transform: rotate(-10deg) !important;
+  translate: 30px 45%;
+}
+
+#projects .album .photo-3 {
+  transform: rotate(-5deg) !important;
+  translate: 90px 50%;
+  transition: transform 0.5s, translate 0.5s;
+}
+
+#projects .album:hover .photo-3 {
+  transform: rotate(-10deg) !important;
+  translate: 100px 35%;
+}
+
+@media (max-width: 920px) { /* Para pantallas pequeñas */
+  #projects .container {
     padding: 0;
   }
 
-  #team .information {
+  #projects .information {
     justify-content: flex-start;
     align-items: flex-start;
     padding: 32px;
     width: 100%;
   }
 
-  #team .row {
+  #projects .row {
     width: 100%;
     aspect-ratio: 1 / 1;
     max-width: 100%;
-    max-height: 400px;
+    max-height: 300px;
     display: flex !important;
     flex-direction: column;
     margin: auto;
-    overflow-x: scroll;
-    scroll-snap-type: x mandatory;
+    overflow: scroll;
+    scroll-snap-type: x mandatory !important;
     position: relative;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
   }
 
-  #team .row .col-1 {
-    width: 300px;
-    height: 300px;
-    aspect-ratio: 1 / 1;
-    flex: 100%;
+  #projects .album {
+    width: 60%;
     scroll-snap-align: center;
-    left: 0;
-    animation: slider ease-in-out both;
+    animation: slider-album ease-in-out both;
     animation-timeline: view(x);
     animation-range: entry 25%, exit 80%;
   }
 
-  #team .row .col-1 .card {
-    opacity: 1;
-    translate: 0 0;
-  }
-
-  #team [class*='col-'] img {
-    filter: grayscale(0) brightness(1.5) contrast(0.9);
-    scale: 1;
-  }
-
-  #team [class*='col-'] .secondary-img {
-    opacity: 1;
-  }
-
-  #team .information .description {
+  #projects .information .description {
     width: 100%;
     text-align: left;
   }
 }
 
-@keyframes slider {
+@media (max-width: 880px) {
+
+}
+
+@keyframes slider-album {
   0% {
-    opacity: 0.2;
+    opacity: 0.6;
     scale: 0.9;
     z-index: 0;
+    transform: rotate(5deg);
+    translate: 0 20px;
     filter: blur(1px);
   }
 
@@ -222,10 +197,10 @@
   }
 }
 
-@keyframes team-animation {
+@keyframes projects-animation {
   0% {
-    opacity: 1;
-    scale: 0.8;
+    opacity: 0.4;
+    scale: 0.9;
     translate: 0 -15vh;
   }
 

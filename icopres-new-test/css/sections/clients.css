@@ -21,7 +21,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  max-width: 70%;
+  width: 56%;
 }
 
 #clients .information .title {
@@ -54,7 +54,7 @@
 #clients .description {
   text-align: center;
   font-size: clamp(16px, 2vw, 1.1rem);
-  width: 100%;
+  width: 70%;
 }
 
 @media (max-width: 768px) { /* Para pantallas pequeñas */
@@ -63,7 +63,7 @@
   }
 
   #clients .information {
-    max-width: 100%;
+    width: 100%;
   }
 
   #clients .description {
