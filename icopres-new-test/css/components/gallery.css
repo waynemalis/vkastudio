@@ -90,7 +90,17 @@ body:has(.gallery .active) {
   cursor: pointer;
   width: 42px;
   height: 42px;
-  bottom: 120px;
+  bottom: 80px;
+}
+
+@media (max-width: 920px) {
+  .gallery .slider-gallery .image {
+    width: 100%;
+  }
+
+  .gallery .container .icon {
+    bottom: 20%;
+  }
 }
 
 @keyframes gallery-image {
