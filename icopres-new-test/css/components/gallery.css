@@ -50,7 +50,7 @@
 
 .gallery-item {
   flex-shrink: 0;
-  width: 100%;
+  width: 800px;
   height: 600px;
   margin-right: 20px;
   border-radius: 8px;

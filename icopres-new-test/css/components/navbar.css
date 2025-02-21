@@ -22,7 +22,7 @@ nav {
 nav .container {
   margin: 0 auto;
   height: 100%;
-  padding: 1rem;
+  padding: 1rem 6rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -51,11 +51,24 @@ nav .container {
 }
 
 .nav-links a {
+  color: #FFFFFF80;
   text-decoration: none;
   font-size: 1rem;
-  animation: fade-a ease-in-out both;
-  animation-timeline: scroll(root);
-  animation-range: 0 172px;
+  font-weight: 400;
+  transition: color 0.25s;
+}
+
+.nav-links a:hover {
+  color: #FFFFFF;
+}
+
+.nav-links .active {
+  color: #FFFFFF;
+}
+
+.nav-links .separator {
+  background: #FFFFFF20;
+  width: 1px;
 }
 
 .nav-mobile {
@@ -113,6 +126,7 @@ nav .container {
   to {
     background: rgba(0, 0, 0, var(--transparency));
     backdrop-filter: blur( var(--blur) );
+    padding: 1rem;
     border-radius: 16px;
   }
 }

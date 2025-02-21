@@ -6,7 +6,7 @@
 #projects .container {
   height: auto;
   border-radius: 16px;
-  overflow: hidden;
+  overflow: clip;
   padding: 4rem clamp(1.25rem,2.64vw + 20.63rem,3.5rem);
   position: relative;
   display: flex;
@@ -75,7 +75,7 @@
   display: flex;
   position: relative;
   flex-direction: column;
-  overflow: hidden;
+  overflow: clip;
   border-radius: 32px;
   width: 200px;
   color: white;

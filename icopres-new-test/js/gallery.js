@@ -183,8 +183,8 @@ function touchMove(event) {
     const maxTranslate = -(galleryItems.length - 1) * itemWidth;
 
     // Resistencia en los bordes (evita teleportación en el primer ítem)
-    if (currentTranslate > 0) {
-      currentTranslate = moveDistance * 0.3; // Mantiene el arrastre suave sin teleportar
+    if (currentIndex === 0 && currentTranslate > 0) {
+      currentTranslate = prevTranslate + moveDistance * 1; // Permite un poco más de arrastre antes de bloquear
     } else if (currentTranslate < maxTranslate) {
       const overflowDistance = currentTranslate - maxTranslate;
       currentTranslate = maxTranslate + overflowDistance * 0.3;
