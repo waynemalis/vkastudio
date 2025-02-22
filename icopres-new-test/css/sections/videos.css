@@ -45,12 +45,22 @@
 }
 
 @media (max-width: 980px) {
+  #videos .container {
+    padding: 4rem 1rem 1rem 1rem;
+  }
+
   #videos .information {
     width: 100%;
   }
 
   #videos .iframes {
+    width: 100%;
+    height: 450px;
     flex-direction: column;
+  }
+
+  #videos iframe {
+    width: 100%;
   }
 }
 
