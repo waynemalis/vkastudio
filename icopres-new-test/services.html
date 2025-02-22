@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>ICOPRES - Ingeniería y Construcción de Presas</title>
+    <link rel="stylesheet" href="css/master.css">
+    <script src="https://unpkg.com/feather-icons"></script>
+  </head>
+  <body class="services-site">
+
+    <nav>
+      <div class="container">
+        <div class="logo">
+          <img src="images/logo.png" alt="">
+        </div>
+
+        <div class="nav-links">
+          <a href="index.html#hero" class="active">Inicio</a>
+          <div class="separator"></div>
+          <a href="index.html#us">Nosotros</a>
+          <div class="separator"></div>
+          <a href="">Servicios</a>
+          <div class="separator"></div>
+          <a href="index.html#projects">Proyectos</a>
+          <div class="separator"></div>
+          <a href="index.html#clients">Clientes</a>
+        </div>
+
+        <div id="contact-btn" class="contact-btn bg-white r2">
+          <a href="#contáctanos" class="hover-btn"> <p>Contacto</p> <i class="icon" data-feather="arrow-up-right"></i></a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="nav-mobile">
+      <div class="container">
+        <div class="nav-links-mobile">
+          <a href="index.html#hero">Inicio</a>
+          <a href="index.html#us">Nosotros</a>
+          <a href="">Servicios</a>
+          <a href="index.html#projects">Proyectos</a>
+          <a href="index.html#clients">Clientes</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="chat">
+      <button class="container-chat" onclick="toggleChat()">
+        <div class="notification"></div>
+        <img class="icon" src="images/icons/message-help.svg">
+      </button>
+      <div class="chat-container" id="chatContainer">
+          <div class="chat-header">
+              Chat de Ayuda
+          </div>
+          <div class="chat-content" id="chatContent">
+          </div>
+      </div>
+    </div>
+
+    <section id="main-services">
+      <div class="container">
+        <p class="main-title">Servicios</p>
+        <div class="row">
+
+          <div data-service="1" class="col-2 card why-us">
+            <div class="background"></div>
+            <div class="information">
+              <p class="title">Presas de Jales (Depósitos de jales en pasta o jales filtrados) <i class="icon" data-feather="arrow-up-right"></i></p>
+              <div class="description list mt-2">
+
+                <div class="item">
+                  <i class="icon" data-feather="chevron-right"></i>
+                  <p>Proyectos de prefactibilidad.</p>
+                </div>
+
+                <div class="item">
+                  <i class="icon" data-feather="chevron-right"></i>
+                  <p>Ingeniería conceptual.</p>
+                </div>
+
+                <div class="item">
+                  <i class="icon" data-feather="chevron-right"></i>
+                  <p>Ingeniería básica.</p>
+                </div>
+
+                <div class="item">
+                  <i class="icon" data-feather="chevron-right"></i>
+                  <p>Ingeniería de detalle.</p>
+                </div>
+
+                <div class="item">
+                  <i class="icon" data-feather="chevron-right"></i>
+                  <p>Ingeniería de cierre y abandono de presas.</p>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <div data-service="2" class="col-2 card why-us">
+            <div class="background"></div>
+            <div class="information">
+              <p class="title">Estudios Especializados <i class="icon" data-feather="arrow-up-right"></i></p>
+              <div class="description list mt-2">
+
+                <div class="item">
+                  <i class="icon" data-feather="chevron-right"></i>
+                  <p>Análisis de rompimiento de presas (Dam Break).</p>
+                </div>
+
+                <div class="item">
+                  <i class="icon" data-feather="chevron-right"></i>
+                  <p>Estudio geotécnico.</p>
+                </div>
+
+                <div class="item">
+                  <i class="icon" data-feather="chevron-right"></i>
+                  <p>Estudio hidrológico.</p>
+                </div>
+
+                <div class="item">
+                  <i class="icon" data-feather="chevron-right"></i>
+                  <p>Estudio geológico.</p>
+                </div>
+
+                <div class="item">
+                  <i class="icon" data-feather="chevron-right"></i>
+                  <p>Estudio de geofísica.</p>
+                </div>
+
+                <div class="item">
+                  <i class="icon" data-feather="chevron-right"></i>
+                  <p>Estudio de peligro sísmico.</p>
+                </div>
+
+                <div class="item">
+                  <i class="icon" data-feather="chevron-right"></i>
+                  <p>Estudio de vulnerabilidad del acuífero.</p>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <div data-service="3" class="col-2 card why-us">
+            <div class="background"></div>
+            <div class="information">
+              <p class="title">Ingeniería y Diseño <i class="icon" data-feather="arrow-up-right"></i></p>
+              <div class="description list mt-2">
+
+                <div class="item">
+                  <i class="icon" data-feather="chevron-right"></i>
+                  <p>Cálculo estructural.</p>
+                </div>
+
+                <div class="item">
+                  <i class="icon" data-feather="chevron-right"></i>
+                  <p>Diseño arquitectónico.</p>
+                </div>
+
+                <div class="item">
+                  <i class="icon" data-feather="chevron-right"></i>
+                  <p>Diseño de mezclas de concreto.</p>
+                </div>
+
+                <div class="item-list">
+                  <div class="item-transparent">
+                    <i class="icon" data-feather="chevron-right"></i>
+                    <p>Diseño de infraestructura en mina:</p>
+                  </div>
+
+                  <div class="item-list-grid pl">
+
+                    <div class="item-transparent padding-0">
+                      <i class="icon" data-feather="arrow-right"></i>
+                      <p>Campamentos.</p>
+                    </div>
+
+                    <div class="item-transparent padding-0">
+                      <i class="icon" data-feather="arrow-right"></i>
+                      <p>Comedores.</p>
+                    </div>
+
+                    <div class="item-transparent padding-0">
+                      <i class="icon" data-feather="arrow-right"></i>
+                      <p>Clínicas.</p>
+                    </div>
+
+                    <div class="item-transparent padding-0">
+                      <i class="icon" data-feather="arrow-right"></i>
+                      <p>Talleres.</p>
+                    </div>
+
+                    <div class="item-transparent padding-0">
+                      <i class="icon" data-feather="arrow-right"></i>
+                      <p>Almacenes.</p>
+                    </div>
+
+                    <div class="item-transparent padding-0">
+                      <i class="icon" data-feather="arrow-right"></i>
+                      <p>Polvorines.</p>
+                    </div>
+
+                    <div class="item-transparent padding-0">
+                      <i class="icon" data-feather="arrow-right"></i>
+                      <p>Caminos.</p>
+                    </div>
+
+                    <div class="item-transparent padding-0">
+                      <i class="icon" data-feather="arrow-right"></i>
+                      <p>Infraestructura deportiva.</p>
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <div data-service="4" class="col-2 card why-us">
+            <div class="background"></div>
+            <div class="information">
+              <p class="title">Servicios Complementarios <i class="icon" data-feather="arrow-up-right"></i></p>
+              <div class="description list mt-2">
+
+                <div class="item">
+                  <i class="icon" data-feather="chevron-right"></i>
+                  <p>Levantamientos topográficos.</p>
+                </div>
+
+                <div class="item">
+                  <i class="icon" data-feather="chevron-right"></i>
+                  <p>Control de calidad (laboratorio).</p>
+                </div>
+
+                <div class="item">
+                  <i class="icon" data-feather="chevron-right"></i>
+                  <p>Supervisión de obra.</p>
+                </div>
+
+                <div class="item">
+                  <i class="icon" data-feather="chevron-right"></i>
+                  <p>Análisis de precios unitarios.</p>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <div class="background"></div>
+      </div>
+    </footer>
+
+    <script src="js/navbar.js"></script>
+    <script src="js/navbar-mobile.js"></script>
+    <script src="js/feather.js"></script>
+    <script src="js/chat.js"></script>
+  </body>
+</html>

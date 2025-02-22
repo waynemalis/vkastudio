@@ -1,22 +1,22 @@
-const nav = document.querySelector('nav').querySelectorAll('a');
-let prevItem = document.querySelector('nav').querySelector('.active');
-let currentItem = null;
+const navMobile = document.querySelector('.nav-mobile').querySelectorAll('a');
+let prevItemMobile = document.querySelector('.nav-mobile').querySelector('.active');
+let currentItemMobile = null;
 
-nav.forEach(button => {
+navMobile.forEach(button => {
   button.addEventListener('click', () => {
     currentItem = button
 
     if (prevItem !== null) {
-      //prevItem.classList.remove('active');
+      //prevItemMobile.classList.remove('active');
     }
-    //currentItem.classList.add('active');
+    //currentItemMobile.classList.add('active');
 
     prevItem = currentItem
   });
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-  const links = document.querySelector('.nav-links').querySelectorAll('a'); // Selecciona todos los enlaces
+  const links = document.querySelector('.nav-mobile').querySelectorAll('a'); // Selecciona todos los enlaces
 
   function updateActiveLink() {
     const currentPath = window.location.pathname; // Ruta actual (ej. "/services.html")

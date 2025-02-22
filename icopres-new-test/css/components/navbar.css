@@ -31,10 +31,15 @@ nav .container {
   animation-range: 0 172px;
 }
 
-
 .logo {
   display: flex;
   align-items: center;
+}
+
+.services-site .logo {
+  animation: fade-a ease-in-out both;
+  animation-timeline: scroll(root);
+  animation-range: 0 172px;
 }
 
 .logo img {
@@ -56,6 +61,12 @@ nav .container {
   font-size: 1rem;
   font-weight: 400;
   transition: color 0.25s;
+}
+
+.services-site .nav-links a {
+  animation: fade-a ease-in-out both;
+  animation-timeline: scroll(root);
+  animation-range: 0 172px;
 }
 
 .nav-links a:hover {
@@ -104,6 +115,10 @@ nav .container {
 
 .nav-links-mobile a {
   text-decoration: none;
+  color: #FFFFFF80;
+}
+
+.nav-links-mobile .active {
   color: white;
 }
 
@@ -143,11 +158,11 @@ nav .container {
 
 @keyframes fade-a {
   from {
-    color: white;
+    filter: invert(1);
   }
 
   to {
-    color: white;
+    filter: invert(0);
   }
 }
 
@@ -163,10 +178,16 @@ nav .container {
 
   nav {
     position: absolute;
+    width: 50%;
+    z-index: 90;
   }
 
   .nav-mobile {
     display: flex;
+  }
+
+  nav .container {
+    padding: 1rem;
   }
 
   .nav-mobile .container {
@@ -175,7 +196,7 @@ nav .container {
   }
 
   .nav-links-mobile {
-    gap: 1.5rem;
+    gap: 1.25rem;
   }
 
   .nav-links-mobile a {

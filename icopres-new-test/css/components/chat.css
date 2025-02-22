@@ -29,6 +29,10 @@
   animation-range: 0 200px;
 }
 
+.services-site .chat, .services-site .container-chat {
+  animation: none;
+}
+
 .chat .notification {
   position: absolute;
   background: #87B9E5;
@@ -53,7 +57,7 @@
 @media (max-width: 980px) {
   .chat {
     animation: none;
-    bottom: 10%;
+    bottom: 100px;
     right: 16px;
   }
 }

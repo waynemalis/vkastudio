@@ -73,16 +73,17 @@
 }
 
 .dot {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
   background-color: #cccccc50;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: translate 0.3s, background-color 0.3s, scale 0.3s;
 }
 
 .dot.active {
   background-color: #fff;
-  scale: 1.1;
+  translate: 0 -3px;
+  scale: 1.5;
 }
 
 .instructions {

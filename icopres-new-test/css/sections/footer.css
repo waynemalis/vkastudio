@@ -8,6 +8,7 @@ footer .container {
   justify-content: center;
   align-items: center;
   height: 280px;
+  bottom: 0;
   z-index: 1;
 }
 
