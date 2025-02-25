@@ -1,0 +1,133 @@
+.gallery {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0);
+  display: none;
+  left: 0;
+  bottom: 0;
+  transition: background 0.5s;
+  z-index: 9999;
+}
+
+.gallery:has(.hidden), .gallery:has(.show) {
+  display: block;
+}
+
+.gallery:has(.hidden) {
+  background: rgba(0,0,0,0);
+}
+
+.gallery:has(.show) {
+  background: rgba(0,0,0,0.8);
+}
+
+.gallery .container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  overflow: hidden;
+  touch-action: pan-y;
+  flex-direction: column;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+}
+
+.gallery:has(.hidden) .container {
+  animation: gallery-out 0.5s ease-in-out;
+}
+
+.gallery:has(.show) .container {
+  animation: gallery-in 0.5s ease-in-out;
+}
+
+.slider-gallery {
+  display: flex;
+  transition: transform 0.3s ease-out;
+  will-change: transform;
+}
+
+.gallery-item {
+  flex-shrink: 0;
+  width: 800px;
+  height: 600px;
+  margin-right: 20px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  object-fit: cover;
+  object-position: center;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  user-select: none;
+}
+
+.dots-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  gap: 8px;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  background-color: #cccccc50;
+  cursor: pointer;
+  transition: translate 0.3s, background-color 0.3s, scale 0.3s;
+}
+
+.dot.active {
+  background-color: #fff;
+  translate: 0 -3px;
+  scale: 1.5;
+}
+
+.instructions {
+  text-align: center;
+  margin-top: 20px;
+  color: #666;
+}
+
+.gallery .container .icon {
+  position: absolute;
+  background: white;
+  border-radius: 100%;
+  padding: 10px;
+  cursor: pointer;
+  width: 42px;
+  height: 42px;
+  bottom: 10%;
+}
+
+@media (max-width: 980px) {
+  .gallery-item {
+    width: 100%;
+    height: 300px;
+  }
+}
+
+@keyframes gallery-out {
+  from {
+    opacity: 1;
+    scale: 1;
+  }
+  to {
+    opacity: 0;
+    scale: 0.8;
+  }
+}
+
+@keyframes gallery-in {
+  from {
+    opacity: 0;
+    scale: 0.8;
+  }
+  to {
+    opacity: 1;
+    scale: 1;
+  }
+}

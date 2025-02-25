@@ -1,0 +1,44 @@
+@import url('framework.css');
+@import url('style.css');
+
+@import url('components/navbar.css');
+@import url('components/chat.css');
+@import url('components/floating-chat.css');
+@import url('components/carousel.css');
+@import url('components/gallery.css');
+
+@import url('sections/hero.css');
+@import url('sections/videos.css');
+@import url('sections/us.css');
+@import url('sections/team.css');
+@import url('sections/certifications.css');
+@import url('sections/main-services.css');
+@import url('sections/services.css');
+@import url('sections/projects.css');
+@import url('sections/clients.css');
+@import url('sections/footer.css');
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+:root {
+  --c1: #F5F5F5;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", serif;
+  line-height: 1.5;
+}
+
+html {
+  scroll-behavior: smooth !important;
+}
+
+body {
+  background: #F5F5F5;
+  justify-content: center;
+  align-items: center;
+}

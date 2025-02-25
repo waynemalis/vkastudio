@@ -1,0 +1,68 @@
+:root {
+  --animation-speed: 200s;
+  --slide-width: 350px;
+  --slider-height: 250px;
+  --slides-visible: 4;  /* Número de slides visibles */
+  --slides-total: 16;    /* Número de slides únicos */
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    /* El desplazamiento debe ser exactamente el ancho total de los slides únicos */
+    transform: translateX(calc(var(--slide-width) * -16.2));
+  }
+}
+
+.slider {
+  height: var(--slider-height);
+  margin: auto;
+  overflow: hidden;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  mask-image: linear-gradient(90deg,#0000 0%,#000 50%,#0000 100%);
+  /* Ajustamos el ancho para mostrar un número exacto de slides */
+  width: 100%;
+}
+
+.slider::before,
+.slider::after {
+  content: "";
+  height: var(--slider-height);
+  position: absolute;
+  width: 200px;
+  z-index: 2;
+}
+
+.slide-track {
+  animation: scroll var(--animation-speed) linear infinite;
+  display: flex;
+  gap: 4px;
+  /* El ancho debe ser exactamente el total de slides (originales + duplicados) */
+  width: calc(var(--slide-width) * (var(--slides-total) * 4));
+}
+
+.slide-track:hover {
+  /* animation-play-state: paused; */
+}
+
+.slide {
+  height: calc(var(--slider-height) - 60px);
+  width: var(--slide-width);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  border-radius: 16px;
+}
+
+/* Para asegurar que las imágenes mantengan su proporción */
+.slide img {
+  width: 80%;
+  height: 80%;
+  object-fit: contain;
+  object-position: center;
+}
