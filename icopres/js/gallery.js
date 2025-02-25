@@ -10,9 +10,12 @@ const items = [
 
 // Lista de imágenes para cada álbum (puedes modificarla)
 const albumImages = {
-    "album1": ["images/card_1.jpg", "images/card_2.jpg", "images/card_3.jpg"],
-    "album2": ["images/bg_2.jpg", "images/card_4.jpg"],
-    "album3": ["img7.jpg", "img8.jpg", "img9.jpg"]
+    "album1": ["images/projects/fresnillo/1.jpg", "images/projects/fresnillo/2.jpg", "images/projects/fresnillo/3.jpg", "images/projects/fresnillo/4.jpg", "images/projects/fresnillo/5.jpg", "images/projects/fresnillo/6.jpg", "images/projects/fresnillo/7.jpg"],
+    "album2": ["images/projects/gochico/1.jpg", "images/projects/gochico/2.jpg", "images/projects/gochico/3.jpg", "images/projects/gochico/4.jpg", "images/projects/gochico/5.jpg"],
+    "album3": ["images/projects/mina-bolivar/1.png"],
+    "album4": ["images/projects/mina-guanajuato/1.jpg", "images/projects/mina-guanajuato/2.jpg", "images/projects/mina-guanajuato/3.jpg"],
+    "album5": ["images/projects/minera-roble/1.jpg", "images/projects/minera-roble/2.jpg", "images/projects/minera-roble/3.jpg", "images/projects/minera-roble/4.jpg"],
+    "album6": ["images/projects/presa-tocayos/1.png", "images/projects/presa-tocayos/2.png", "images/projects/presa-tocayos/3.png", "images/projects/presa-tocayos/4.png"]
 };
 
 // Variables para el deslizamiento
@@ -184,7 +187,7 @@ function touchMove(event) {
 
     // Resistencia en los bordes (evita teleportación en el primer ítem)
     if (currentIndex === 0 && currentTranslate > 0) {
-      currentTranslate = prevTranslate + moveDistance * 1; // Permite un poco más de arrastre antes de bloquear
+      currentTranslate = prevTranslate + moveDistance * 0.9; // Permite un poco más de arrastre antes de bloquear
     } else if (currentTranslate < maxTranslate) {
       const overflowDistance = currentTranslate - maxTranslate;
       currentTranslate = maxTranslate + overflowDistance * 0.3;

@@ -7,6 +7,7 @@
   height: auto;
   border-radius: 16px;
   overflow: hidden;
+  -webkit-overflow: hidden;
   padding: 4rem clamp(1.25rem,2.64vw + 20.63rem,3.5rem);
   position: relative;
   display: flex;
@@ -96,6 +97,7 @@
   align-items: center;
   position: relative;
   overflow: hidden;
+  -webkit-overflow: hidden;
   z-index: 99;
 }
 

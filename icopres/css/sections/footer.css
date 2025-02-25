@@ -1,15 +1,120 @@
 footer .container {
   overflow: hidden;
-  background: black;
+  -webkit-overflow: hidden;
   position: relative;
+  background: black;
+  min-height: 320px;
+  padding: 0 !important;
+  z-index: 1;
+}
+
+footer .main {
+  position: absolute;
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
-  justify-content: center;
-  align-items: center;
-  height: 280px;
-  bottom: 0;
   z-index: 1;
+}
+
+footer .content {
+  padding: 2.5rem 8rem;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1;
+}
+
+footer .company {
+  max-width: 40%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+footer .company .logo {
+  width: 200px;
+  margin-bottom: 20px;
+}
+
+footer .company p, footer .company a {
+  color: #FFFFFF90;
+  font-size: clamp(0.6rem,1.67vw + 1.23rem,14px);
+  text-decoration: none;
+}
+
+footer .company .tel {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: auto;
+  gap: 8px;
+}
+
+footer .company .icon {
+  width: 18px;
+  height: 18px;
+}
+
+footer .columns {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 64px;
+}
+
+footer .list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+footer .contact {
+  max-width: 300px;
+  height: auto;
+  border: 1px solid #FFFFFF90;
+  padding: 16px;
+}
+
+footer .contact a {
+  color: #FFFFFF90;
+  font-size: 14px !important;
+  text-decoration: none;
+  transition: color 0.25s;
+}
+
+footer .list .title {
+  color: #FFFFFF40;
+  font-size: 16px;
+  text-transform: uppercase;
+  margin-bottom: 8px
+}
+
+footer .list a {
+  color: #FFFFFF90;
+  font-size: 16px;
+  text-decoration: none;
+  transition: color 0.25s;
+}
+
+footer .list a:hover {
+  color: white;
+}
+
+footer .extra-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 1rem 8rem;
+  background: black;
+  border-top: 1px solid #ffffff20;
+}
+
+footer .extra-info p {
+  color: white;
 }
 
 footer .background {
@@ -22,4 +127,26 @@ footer .background {
   background-clip: padding-box;
   width: 100%;
   height: 100%;
+  z-index: 0;
+}
+
+@media (max-width: 980px) {
+  footer .container {
+    min-height: 600px;
+  }
+
+  footer .content {
+    padding: 2rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 32px;
+  }
+
+  footer .company {
+    max-width: 100%;
+  }
+
+  footer .extra-info {
+    padding: 2rem 2rem 5rem 2rem;
+  }
 }
