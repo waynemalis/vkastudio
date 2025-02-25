@@ -14,10 +14,15 @@
   gap: 2rem;
   justify-content: center;
   align-items: center;
-  animation: team-animation ease-in-out both;
-  animation-timeline: view();
-  animation-range: entry 2%;
   z-index: 1;
+}
+
+@supports (animation-timeline: view()) {
+  #team .container {
+    animation: team-animation ease-in-out both;
+    animation-timeline: view();
+    animation-range: entry 2%;
+  }
 }
 
 #team .background {

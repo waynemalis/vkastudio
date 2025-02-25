@@ -11,10 +11,16 @@
   gap: 2rem;
   justify-content: center;
   align-items: center;
-  animation: clients-animation ease-in-out both;
-  animation-timeline: view();
-  animation-range: entry 25%;
 }
+
+@supports (animation-timeline: view()) {
+  #clients .container {
+    animation: clients-animation ease-in-out both;
+    animation-timeline: view();
+    animation-range: entry 25%;
+  }
+}
+
 
 #clients .information {
   display: flex;

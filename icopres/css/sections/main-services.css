@@ -8,9 +8,14 @@
   justify-content: center;
   align-items: flex-start;
   margin-top: 100px;
-  animation: main-services-animation ease-in-out both;
-  animation-timeline: view();
-  animation-range: 0 500px;
+}
+
+@supports (animation-timeline: view()) {
+  .services-site #main-services .container {
+    animation: main-services-animation ease-in-out both;
+    animation-timeline: view();
+    animation-range: 0 500px;
+  }
 }
 
 .services-site #main-services .main-title {

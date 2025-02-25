@@ -15,12 +15,17 @@
   gap: 2rem;
   justify-content: center;
   align-items: center;
-  animation: services-animation ease-in-out both;
-  animation-timeline: view();
-  animation-range: entry 1%;
   max-width: 54%;
   min-height: 300px;
   z-index: 1;
+}
+
+@supports (animation-timeline: view()) {
+  #services .container {
+    animation: services-animation ease-in-out both;
+    animation-timeline: view();
+    animation-range: entry 1%;
+  }
 }
 
 #services .background {

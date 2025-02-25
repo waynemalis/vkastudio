@@ -19,6 +19,14 @@
   z-index: 1;
 }
 
+@supports (animation-timeline: view()) {
+  #videos .container {
+    animation: videos-animation ease-in-out both;
+    animation-timeline: view();
+    animation-range: entry 2%;
+  }
+}
+
 #videos .information {
   display: flex;
   position: relative;

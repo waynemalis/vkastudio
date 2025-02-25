@@ -23,6 +23,7 @@
   background: #00000060;
   border: 1px solid #ffffff1f;
   backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   cursor: pointer;
   animation: scroll-chat-background ease both;
   animation-timeline: scroll(root);

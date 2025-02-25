@@ -15,10 +15,15 @@
   gap: 2rem;
   justify-content: center;
   align-items: center;
-  animation: certifications-animation ease-in-out both;
-  animation-timeline: view();
-  animation-range: entry 2%;
   z-index: 1;
+}
+
+@supports (animation-timeline: view()) {
+  #certifications .container {
+    animation: certifications-animation ease-in-out both;
+    animation-timeline: view();
+    animation-range: entry 2%;
+  }
 }
 
 #certifications .information {
