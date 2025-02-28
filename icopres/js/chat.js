@@ -7,6 +7,7 @@ const initialMessage = `
     <div class="faq-options">
         <div class="faq-option" onclick="showAnswer(0)">¿Cómo puedo contactarlos?</div>
         <div class="faq-option" onclick="showAnswer(1)">¿Qué servicios tienen?</div>
+        <div class="faq-option" onclick="window.open('files/cv-2025.pdf');">Ver nuestra trayectoria</div>
     </div>
 `;
 
