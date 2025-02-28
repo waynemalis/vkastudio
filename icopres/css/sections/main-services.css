@@ -42,14 +42,23 @@
   justify-content: flex-start;
   align-items: flex-start;
   flex-direction: column;
-  background: white;
+  background: rgb(235,246,255);
+  background: -moz-linear-gradient(0deg, rgba(235,246,255,1) 0%, rgba(255,255,255,1) 50%, rgba(255,255,255,1) 100%);
+  background: -webkit-linear-gradient(0deg, rgba(235,246,255,1) 0%, rgba(255,255,255,1) 50%, rgba(255,255,255,1) 100%);
+  background: linear-gradient(0deg, rgba(235,246,255,1) 0%, rgba(255,255,255,1) 50%, rgba(255,255,255,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ebf6ff",endColorstr="#ffffff",GradientType=1);
   border-radius: 16px;
   padding: 32px;
-  animation: services-card-section-in-animation ease-in-out both;
-  animation-timeline: view();
-  animation-range: 0 170px;
   height: 100%;
   gap: 0.25rem;
+}
+
+@supports (animation-timeline: view()) {
+  .services-site #main-services .card {
+    animation: services-card-section-in-animation ease-in-out both;
+    animation-timeline: view();
+    animation-range: 0 170px;
+  }
 }
 
 .services-site #main-services .title {
@@ -59,17 +68,13 @@
 }
 
 .services-site #main-services .card .title {
-  opacity: 0;
-  justify-content: flex-end;
+  justify-content: flex-start;
   align-items: center;
   display: flex;
   gap: 0.5rem;
   color: #0C1E21;
   font-size: 20px !important;
   font-weight: 400;
-  animation: card-title-in-animation ease-in-out both;
-  animation-timeline: view();
-  animation-range: 0 100px;
 }
 
 .services-site #main-services .card .feather {
@@ -106,7 +111,7 @@
 .services-site #main-services .item-list {
   display: flex;
   width: auto;
-  background: #ffffff15 !important;
+  background: #06272c08 !important;
   border-radius: 8px;
   padding: 14px;
   flex-direction: column;
@@ -142,7 +147,7 @@
 .services-site #main-services .list .item {
   display: flex;
   width: auto;
-  background: #ffffff15 !important;
+  background: #06272c08 !important;
   border-radius: 8px;
   padding: 14px;
   flex-direction: row;
@@ -170,17 +175,19 @@
 }
 
 .services-site #main-services .list .item .feather, .services-site #main-services .list .item-transparent .feather {
-  background: #ffffff20 !important;
+  background: #06272c10 !important;
   border-radius: 100%;
-  border: 1px solid #ffffff40;
+  border: 1px solid #06272c20;
   translate: 0 0;
   stroke-width: 4px;
   width: 24px;
   height: 24px;
 }
 
-.services-site #main-services .why-us {
-  overflow: clip;
+#main-services .why-us {
+  display: flex;
+  position: relative;
+  height: 100%;
   padding: 0 !important;
 }
 

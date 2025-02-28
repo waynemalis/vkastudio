@@ -2,6 +2,8 @@
   background: black;
   background-repeat: no-repeat;
   background-size: cover;
+  position: relative;
+  width: 100%;
   height: 100vh;
   padding: 32px;
   color: white;
@@ -10,7 +12,8 @@
   gap: 2rem;
   justify-content: center;
   align-items: center;
-  overflow: clip;
+  overflow: hidden;
+  -webkit-overflow: hidden;
 }
 
 @supports (animation-timeline: view()) {
@@ -24,12 +27,20 @@
 #hero .video-hero {
   position: absolute;
   opacity: 0.4;
-  z-index: -1;
+  z-index: 0;
+}
+
+#hero .content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
 }
 
 #hero h1 {
   text-align: center;
-  font-weight: 400;
+  font-weight: 900;
   font-size: clamp(40px, 5vw, 80px);
 }
 
@@ -110,8 +121,8 @@
     line-height: 1;
   }
 
-  #hero p {
-    width: 100%;
+  #hero .p {
+    width: 100% !important;
   }
 
   #hero .scroll-down {

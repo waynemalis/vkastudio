@@ -5,7 +5,7 @@
 
 #clients .container {
   height: auto;
-  padding: 2.5rem;
+  padding: 2.5rem 2.5rem 10rem 2.5rem;
   display: flex;
   flex-direction: column;
   gap: 2rem;

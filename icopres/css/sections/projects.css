@@ -75,14 +75,14 @@
 #projects .row {
   gap: 16px;
   max-width: 56%;
+  justify-content: center !important;
 }
 
 #projects .album {
   display: flex;
   position: relative;
   flex-direction: column;
-  overflow: clip;
-  -webkit-overflow: clip;
+  clip-path: inset(0 round 32px);
   border-radius: 32px;
   width: 200px;
   color: white;
@@ -164,6 +164,7 @@
     margin: auto;
     overflow: scroll;
     scroll-snap-type: x mandatory !important;
+    overflow-y: hidden;
     position: relative;
     align-items: center;
     justify-content: flex-start;
