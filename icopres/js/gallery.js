@@ -27,6 +27,7 @@ let currentIndex = 0;
 let animationID = null;
 let itemWidth = 0;
 let currentAlbumSize = 0; // Variable para guardar el tamaño del álbum actual
+let isClickInsideInteractive = false; // Variable para rastrear si el clic fue dentro de un elemento interactivo
 
 // Elementos del DOM
 const albums = document.querySelectorAll('.album');
@@ -34,7 +35,6 @@ const main = document.querySelector('.gallery');
 const gallery = document.getElementById('gallery');
 const dotsContainer = document.getElementById('dots');
 const close = document.querySelector('.close-gallery');
-const galleryModal = document.querySelector('.gallery-modal'); // Asegúrate de que este elemento exista en tu HTML
 
 // Función para cerrar la galería
 function closeGallery() {
@@ -49,24 +49,72 @@ function closeGallery() {
 // Evento para el botón de cierre
 close.addEventListener('click', closeGallery);
 
-// Evento para cerrar al hacer clic fuera de la galería
-document.addEventListener('mousedown', function(event) {
-  // Verificar si la galería está visible
-  if (gallery.classList.contains('show')) {
-    // Obtener los elementos relevantes
-    const galleryItems = gallery.querySelectorAll('.gallery-item');
-    const isGalleryItem = Array.from(galleryItems).some(item => item.contains(event.target));
-    const isDot = event.target.classList.contains('dot');
-    const isCloseButton = close.contains(event.target);
-    const isGalleryContent = gallery.contains(event.target);
+// Agregar manejadores de eventos para detectar clics dentro de elementos interactivos
+function setupClickOutsideDetection() {
+  // Al hacer clic en un elemento interactivo, marcar que el clic está dentro
+  const trackClickInside = (e) => {
+    isClickInsideInteractive = true;
+  };
 
-    // Si el clic no fue en ninguno de los elementos de interacción o en los dots, cerrar la galería
-    if (!isGalleryItem && !isDot && !isCloseButton && isGalleryContent) {
-      // El clic fue en el área de la galería pero no en los elementos interactivos
-      closeGallery();
+  // Agregar listeners a los elementos interactivos
+  gallery.querySelectorAll('.gallery-item').forEach(item => {
+    item.addEventListener('mousedown', trackClickInside);
+  });
+
+  dotsContainer.querySelectorAll('.dot').forEach(dot => {
+    dot.addEventListener('mousedown', trackClickInside);
+  });
+
+  close.addEventListener('mousedown', trackClickInside);
+
+  // Agregar el listener del documento para el cierre al hacer clic fuera
+  document.addEventListener('mousedown', function(e) {
+    // Solo proceder si la galería está visible
+    if (gallery.classList.contains('show')) {
+      // Resetear el flag al inicio de cada clic
+      isClickInsideInteractive = false;
+
+      // Si el clic no es en un elemento interactivo (que sería detectado por los listeners arriba)
+      // Y el clic es dentro de la galería (no en sus elementos interactivos)
+      setTimeout(() => {
+        // Comprobamos si el clic fue dentro de la galería pero no en elementos interactivos
+        const isClickInGallery = gallery.contains(e.target);
+        const isClickInDotsContainer = dotsContainer.contains(e.target);
+
+        if (isClickInGallery && !isClickInsideInteractive && !isClickInDotsContainer) {
+          closeGallery();
+        }
+
+        // Resetear para el próximo clic
+        isClickInsideInteractive = false;
+      }, 0);
     }
-  }
-});
+  });
+
+  // Alternativa: usar mouseup para detectar clics completados
+  document.addEventListener('mouseup', function(e) {
+    if (gallery.classList.contains('show')) {
+      const galleryRect = gallery.getBoundingClientRect();
+      const dotsRect = dotsContainer.getBoundingClientRect();
+
+      // Verificar si el clic es dentro de la galería pero NO en dots o imágenes
+      const isClickInGalleryArea = e.clientX >= galleryRect.left &&
+                                 e.clientX <= galleryRect.right &&
+                                 e.clientY >= galleryRect.top &&
+                                 e.clientY <= galleryRect.bottom;
+
+      const isClickInDotsArea = e.clientX >= dotsRect.left &&
+                              e.clientX <= dotsRect.right &&
+                              e.clientY >= dotsRect.top &&
+                              e.clientY <= dotsRect.bottom;
+
+      // Si estamos en el área de la galería pero no en los dots ni en un elemento interactivo
+      if (isClickInGalleryArea && !isClickInDotsArea && !isClickInsideInteractive && !isDragging) {
+        closeGallery();
+      }
+    }
+  });
+}
 
 // Crear elementos de la galería
 function createGalleryItems() {
@@ -110,6 +158,9 @@ function createAlbumItems(albumId) {
     galleryItem.src = image;
     galleryItem.style.backgroundColor = '#000';
     galleryItem.className = 'gallery-item';
+    galleryItem.addEventListener('mousedown', (e) => {
+      isClickInsideInteractive = true;
+    });
     gallery.appendChild(galleryItem);
   });
 
@@ -120,6 +171,9 @@ function createAlbumItems(albumId) {
     dot.addEventListener('click', () => {
       setPositionByIndex(index);
       updateDots();
+    });
+    dot.addEventListener('mousedown', (e) => {
+      isClickInsideInteractive = true;
     });
     dotsContainer.appendChild(dot);
   });
@@ -188,6 +242,7 @@ function animation() {
 // Iniciar arrastre
 function touchStart(event) {
   isDragging = true;
+  isClickInsideInteractive = true; // Marcar como interactivo cuando comienza el arrastre
   startX = getPositionX(event);
 
   // Asegurar que prevTranslate está sincronizado
@@ -261,6 +316,25 @@ function dragLeave() {
   }
 }
 
+// Función simplificada para el cierre al hacer clic
+function addClickOutsideListener() {
+  // Usando un enfoque más simple y directo
+  document.addEventListener('click', function(e) {
+    if (!gallery.classList.contains('show')) return;
+
+    // Si el clic no fue en una imagen, en los dots, o en el botón de cierre
+    const isClickOnGalleryItem = e.target.closest('.gallery-item');
+    const isClickOnDot = e.target.closest('.dot');
+    const isClickOnCloseButton = e.target.closest('.close-gallery');
+
+    // Si el clic fue en el fondo de la galería pero no en elementos interactivos
+    if (!isClickOnGalleryItem && !isClickOnDot && !isClickOnCloseButton &&
+        !isDragging && e.target.closest('.gallery')) {
+      closeGallery();
+    }
+  });
+}
+
 // Inicializar galería
 function initGallery(albumId) {
   createAlbumItems(albumId);
@@ -307,5 +381,15 @@ albums.forEach(album => {
     });
 });
 
-// Iniciar cuando el DOM esté listo
-//document.addEventListener('DOMContentLoaded', initGallery);
+// Agregar listener para clic fuera después de que DOM esté completamente cargado
+document.addEventListener('DOMContentLoaded', function() {
+  addClickOutsideListener();
+});
+
+// Otro enfoque más simple que podría funcionar mejor
+gallery.addEventListener('click', function(e) {
+  // Verificar si el clic fue directamente en el fondo de la galería
+  if (e.target === gallery && gallery.classList.contains('show')) {
+    closeGallery();
+  }
+});
