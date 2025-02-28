@@ -3,7 +3,7 @@ footer .container {
   -webkit-overflow: hidden;
   position: relative;
   background: black;
-  min-height: 320px;
+  min-height: 380px;
   padding: 0 !important;
   z-index: 1;
 }
@@ -104,6 +104,23 @@ footer .list a:hover {
   color: white;
 }
 
+footer .terms {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  padding: 1rem 8rem;
+  gap: 16px;
+}
+
+footer .terms a {
+  color: #FFFFFF90;
+  transition: color 0.25s;
+}
+
+footer .terms a:hover {
+  color: white;
+}
+
 footer .extra-info {
   display: flex;
   flex-direction: row;
@@ -113,8 +130,9 @@ footer .extra-info {
   border-top: 1px solid #ffffff20;
 }
 
-footer .extra-info p {
+footer .extra-info p, footer .extra-info a {
   color: white;
+  text-decoration: none;
 }
 
 footer .background {
@@ -132,7 +150,7 @@ footer .background {
 
 @media (max-width: 980px) {
   footer .container {
-    min-height: 600px;
+    min-height: 650px;
   }
 
   footer .content {
@@ -146,7 +164,11 @@ footer .background {
     max-width: 100%;
   }
 
+  footer .terms {
+    padding: 2rem;
+  }
+
   footer .extra-info {
-    padding: 2rem 2rem 5rem 2rem;
+    padding: 2rem 2rem 8rem 2rem;
   }
 }

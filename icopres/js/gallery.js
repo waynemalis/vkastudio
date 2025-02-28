@@ -10,12 +10,12 @@ const items = [
 
 // Lista de imágenes para cada álbum (puedes modificarla)
 const albumImages = {
-    "album1": ["images/projects/fresnillo/1.jpg", "images/projects/fresnillo/2.jpg", "images/projects/fresnillo/3.jpg", "images/projects/fresnillo/4.jpg", "images/projects/fresnillo/5.jpg", "images/projects/fresnillo/6.jpg", "images/projects/fresnillo/7.jpg"],
-    "album2": ["images/projects/gochico/1.jpg", "images/projects/gochico/2.jpg", "images/projects/gochico/3.jpg", "images/projects/gochico/4.jpg", "images/projects/gochico/5.jpg"],
-    "album3": ["images/projects/mina-bolivar/1.png"],
-    "album4": ["images/projects/mina-guanajuato/1.jpg", "images/projects/mina-guanajuato/2.jpg", "images/projects/mina-guanajuato/3.jpg"],
-    "album5": ["images/projects/minera-roble/1.jpg", "images/projects/minera-roble/2.jpg", "images/projects/minera-roble/3.jpg", "images/projects/minera-roble/4.jpg"],
-    "album6": ["images/projects/presa-tocayos/1.png", "images/projects/presa-tocayos/2.png", "images/projects/presa-tocayos/3.png", "images/projects/presa-tocayos/4.png"]
+    "album1": ["images/projects/fresnillo/1.webp", "images/projects/fresnillo/2.webp", "images/projects/fresnillo/3.webp", "images/projects/fresnillo/4.webp", "images/projects/fresnillo/5.webp", "images/projects/fresnillo/6.webp", "images/projects/fresnillo/7.webp"],
+    "album2": ["images/projects/gochico/1.webp", "images/projects/gochico/2.webp", "images/projects/gochico/3.webp", "images/projects/gochico/4.webp", "images/projects/gochico/5.webp"],
+    "album3": ["images/projects/mina-bolivar/1.webp"],
+    "album4": ["images/projects/mina-guanajuato/1.webp", "images/projects/mina-guanajuato/2.webp", "images/projects/mina-guanajuato/3.webp"],
+    "album5": ["images/projects/minera-roble/1.webp", "images/projects/minera-roble/2.webp", "images/projects/minera-roble/3.webp", "images/projects/minera-roble/4.webp"],
+    "album6": ["images/projects/presa-tocayos/1.webp", "images/projects/presa-tocayos/2.webp", "images/projects/presa-tocayos/3.webp", "images/projects/presa-tocayos/4.webp"]
 };
 
 // Variables para el deslizamiento
@@ -26,6 +26,7 @@ let prevTranslate = 0;
 let currentIndex = 0;
 let animationID = null;
 let itemWidth = 0;
+let currentAlbumSize = 0; // Variable para guardar el tamaño del álbum actual
 
 // Elementos del DOM
 const albums = document.querySelectorAll('.album');
@@ -33,14 +34,38 @@ const main = document.querySelector('.gallery');
 const gallery = document.getElementById('gallery');
 const dotsContainer = document.getElementById('dots');
 const close = document.querySelector('.close-gallery');
+const galleryModal = document.querySelector('.gallery-modal'); // Asegúrate de que este elemento exista en tu HTML
 
-close.addEventListener('click', () => {
+// Función para cerrar la galería
+function closeGallery() {
   gallery.classList.remove('show');
   gallery.classList.add('hidden');
   setTimeout(() => {
     gallery.classList.remove('hidden');
     gallery.classList.remove('show');
-  },500);
+  }, 500);
+}
+
+// Evento para el botón de cierre
+close.addEventListener('click', closeGallery);
+
+// Evento para cerrar al hacer clic fuera de la galería
+document.addEventListener('mousedown', function(event) {
+  // Verificar si la galería está visible
+  if (gallery.classList.contains('show')) {
+    // Obtener los elementos relevantes
+    const galleryItems = gallery.querySelectorAll('.gallery-item');
+    const isGalleryItem = Array.from(galleryItems).some(item => item.contains(event.target));
+    const isDot = event.target.classList.contains('dot');
+    const isCloseButton = close.contains(event.target);
+    const isGalleryContent = gallery.contains(event.target);
+
+    // Si el clic no fue en ninguno de los elementos de interacción o en los dots, cerrar la galería
+    if (!isGalleryItem && !isDot && !isCloseButton && isGalleryContent) {
+      // El clic fue en el área de la galería pero no en los elementos interactivos
+      closeGallery();
+    }
+  }
 });
 
 // Crear elementos de la galería
@@ -75,8 +100,11 @@ function createGalleryItems() {
 // Crear elementos de la galería
 function createAlbumItems(albumId) {
   const images = albumImages[albumId] || [];
+  currentAlbumSize = images.length; // Guardar el tamaño del álbum actual
+
   gallery.innerHTML = "";
   dotsContainer.innerHTML = "";
+
   images.forEach(image => {
     const galleryItem = document.createElement('img');
     galleryItem.src = image;
@@ -101,6 +129,7 @@ function createAlbumItems(albumId) {
   if (firstItem) {
     const style = window.getComputedStyle(firstItem);
     itemWidth = firstItem.offsetWidth + parseInt(style.marginRight);
+    currentIndex = 0; // Reiniciar el índice al cambiar de álbum
     setPositionByIndex(currentIndex);
   }
 }
@@ -144,7 +173,6 @@ function setPositionByIndex(index) {
 
   setSliderPosition();
 }
-
 
 // Establecer posición del slider
 function setSliderPosition() {
@@ -209,7 +237,9 @@ function touchEnd() {
     if (moveDistance > 0) {
       currentIndex = Math.max(currentIndex - 1, 0);
     } else {
-      currentIndex = Math.min(currentIndex + 1, items.length - 1);
+      // Usar el número real de imágenes en el álbum actual
+      const galleryItems = gallery.querySelectorAll('.gallery-item');
+      currentIndex = Math.min(currentIndex + 1, galleryItems.length - 1);
     }
   }
 
@@ -234,6 +264,7 @@ function dragLeave() {
 // Inicializar galería
 function initGallery(albumId) {
   createAlbumItems(albumId);
+  currentIndex = 0; // Reiniciar el índice actual
 
   // Esperar a que los elementos se agreguen al DOM antes de calcular el tamaño
   setTimeout(() => {
@@ -271,10 +302,7 @@ function initGallery(albumId) {
 albums.forEach(album => {
     album.addEventListener('click', () => {
       const albumId = album.getAttribute('data-album'); // Obtener el ID del álbum (debe estar en el HTML)
-      const images = albumImages[albumId] || []; // Obtener imágenes del álbum o un array vacío
-
       initGallery(albumId);
-
       gallery.classList.add("show");
     });
 });

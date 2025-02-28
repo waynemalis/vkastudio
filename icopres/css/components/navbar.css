@@ -36,7 +36,7 @@ nav .container {
   align-items: center;
 }
 
-.services-site .logo {
+.other-site .logo {
   animation: fade-a ease-in-out both;
   animation-timeline: scroll(root);
   animation-range: 0 172px;
@@ -113,10 +113,14 @@ nav .container {
   flex-direction: column;
 }
 
-.services-site .nav-links a {
+.other-site .nav-links a {
   animation: fade-a ease-in-out both;
   animation-timeline: scroll(root);
   animation-range: 0 172px;
+}
+
+.other-site .dropdown-content a {
+  animation: none;
 }
 
 .nav-links a {
