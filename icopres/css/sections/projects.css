@@ -143,6 +143,10 @@
   translate: 100px 35%;
 }
 
+#projects .cv-btn {
+  border: 1px solid #06272c25;
+}
+
 @media (max-width: 920px) { /* Para pantallas pequeñas */
   #projects .container {
     padding: 0;

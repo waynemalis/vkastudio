@@ -94,7 +94,7 @@
   flex-direction: row;
   color: #06272c99;
   font-weight: 400;
-  text-align: left;
+  text-align: justify;
   font-size: clamp(0.6rem,1.67vw + 1.23rem,16px);
 }
 

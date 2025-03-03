@@ -25,6 +25,9 @@
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   cursor: pointer;
+}
+
+body:not(.other-site) .chat .container-chat {
   animation: scroll-chat-background ease both;
   animation-timeline: scroll(root);
   animation-range: 0 200px;
