@@ -36,6 +36,7 @@ footer .company {
 }
 
 footer .company .logo {
+  animation: none !important;
   width: 200px;
   margin-bottom: 20px;
 }
